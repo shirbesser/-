@@ -1,2 +1,1 @@
-// TODO: replace with the real WhatsApp community invite link.
-export const WHATSAPP_LINK = "https://chat.whatsapp.com/your-community-link-here";
+export const WHATSAPP_LINK = "https://chat.whatsapp.com/G1eBuXB1owW6q8hvGD8Hpf";
