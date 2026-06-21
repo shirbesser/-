@@ -1,6 +1,7 @@
 import StickerBadge from "./StickerBadge";
 import Reveal from "./Reveal";
 import { Star, Sparkle, ScribbleCircle } from "./doodles/Doodles";
+import profilePhoto from "../assets/profile.png";
 
 export default function AboutSection() {
   return (
@@ -15,10 +16,12 @@ export default function AboutSection() {
             className="relative -rotate-2 border-[3px] border-ink bg-paper p-4 pb-8 shadow-doodle-lg transition-transform duration-300 hover:rotate-0 hover:scale-105"
             style={{ borderRadius: "4px" }}
           >
-            <div className="flex aspect-[4/5] w-full items-center justify-center rounded-sm border-2 border-dashed border-ink/30 bg-gradient-to-br from-pink-light via-lavender-light to-blue-light">
-              <span className="font-accent px-4 text-center text-xl text-ink/50">
-                התמונה שלך כאן
-              </span>
+            <div className="aspect-[4/5] w-full overflow-hidden rounded-sm border-2 border-ink/20">
+              <img
+                src={profilePhoto}
+                alt="שיר בסר"
+                className="h-full w-full object-cover"
+              />
             </div>
             <p className="font-accent mt-3 text-center text-xl text-ink/70">
               שיר בסר
