@@ -1,15 +1,11 @@
 import { useState } from "react";
 import CTAButton from "./CTAButton";
-import { Star, Sparkle } from "./doodles/Doodles";
+import { Sparkle } from "./doodles/Doodles";
 
-// TODO: replace with the real WhatsApp community invite link.
-const WHATSAPP_LINK = "https://chat.whatsapp.com/your-community-link-here";
-
-export default function SignupForm() {
+export default function SignupForm({ onSuccess }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
-  const [submitted, setSubmitted] = useState(false);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -22,31 +18,7 @@ export default function SignupForm() {
       return;
     }
     setError("");
-    setSubmitted(true);
-  }
-
-  if (submitted) {
-    return (
-      <div
-        className="relative mx-auto max-w-xl border-[3px] border-ink bg-paper p-8 text-center shadow-doodle-lg sm:p-10"
-        style={{ borderRadius: "26px 8px 26px 8px" }}
-      >
-        <Star className="absolute -top-6 -right-4 h-10 w-10 text-yellow animate-spin-slow" />
-        <p className="font-display text-2xl sm:text-3xl">
-          מעולה, <span className="highlight-yellow">{name || "אצלך"}</span>!
-        </p>
-        <p className="mt-3 text-lg text-ink/80">
-          נשאר רק צעד אחד: להצטרף לקבוצת הוואטסאפ ולהתחיל לקבל תוכן שעובד.
-        </p>
-        <CTAButton
-          href={WHATSAPP_LINK}
-          variant="whatsapp"
-          className="mx-auto mt-6"
-        >
-          להצטרפות לקהילת הוואטסאפ
-        </CTAButton>
-      </div>
-    );
+    onSuccess(name.trim());
   }
 
   return (

@@ -1,7 +1,8 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Hero from "./components/Hero";
 import AboutSection from "./components/AboutSection";
 import StickyCTA from "./components/StickyCTA";
+import ThankYouPage from "./components/ThankYouPage";
 import PainSection from "./sections/PainSection";
 import SolutionSection from "./sections/SolutionSection";
 import WhatsInsideSection from "./sections/WhatsInsideSection";
@@ -17,9 +18,19 @@ function SectionDivider() {
 
 function App() {
   const ctaRef = useRef(null);
+  const [registeredName, setRegisteredName] = useState(null);
 
   function scrollToForm() {
     ctaRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  if (registeredName !== null) {
+    return (
+      <ThankYouPage
+        name={registeredName}
+        onBack={() => setRegisteredName(null)}
+      />
+    );
   }
 
   return (
@@ -36,7 +47,7 @@ function App() {
       <SectionDivider />
       <AboutSection />
       <SectionDivider />
-      <CTASection ref={ctaRef} />
+      <CTASection ref={ctaRef} onSignupSuccess={setRegisteredName} />
       <Footer />
       <StickyCTA onClick={scrollToForm} />
     </div>

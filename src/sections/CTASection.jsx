@@ -3,7 +3,7 @@ import SignupForm from "../components/SignupForm";
 import Reveal from "../components/Reveal";
 import { Star, Sparkle, Squiggle } from "../components/doodles/Doodles";
 
-const CTASection = forwardRef(function CTASection(_, ref) {
+const CTASection = forwardRef(function CTASection({ onSignupSuccess }, ref) {
   return (
     <section
       ref={ref}
@@ -25,7 +25,7 @@ const CTASection = forwardRef(function CTASection(_, ref) {
 
       <Reveal className="relative mx-auto mt-10 max-w-xl">
         <Sparkle className="absolute -top-8 right-2 h-8 w-8 text-lavender animate-float hidden sm:block" />
-        <SignupForm />
+        <SignupForm onSuccess={onSignupSuccess} />
       </Reveal>
     </section>
   );
