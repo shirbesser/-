@@ -1,9 +1,9 @@
 import { forwardRef } from "react";
-import SignupForm from "../components/SignupForm";
+import RavPageFormEmbed from "../components/RavPageFormEmbed";
 import Reveal from "../components/Reveal";
 import { Star, Sparkle, Squiggle } from "../components/doodles/Doodles";
 
-const CTASection = forwardRef(function CTASection({ onSignupSuccess }, ref) {
+const CTASection = forwardRef(function CTASection(_props, ref) {
   return (
     <section
       ref={ref}
@@ -25,7 +25,7 @@ const CTASection = forwardRef(function CTASection({ onSignupSuccess }, ref) {
 
       <Reveal className="relative mx-auto mt-10 max-w-xl">
         <Sparkle className="absolute -top-8 right-2 h-8 w-8 text-lavender animate-float hidden sm:block" />
-        <SignupForm onSuccess={onSignupSuccess} />
+        <RavPageFormEmbed />
       </Reveal>
     </section>
   );
