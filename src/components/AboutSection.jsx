@@ -1,4 +1,5 @@
 import StickerBadge from "./StickerBadge";
+import Reveal from "./Reveal";
 import { Star, Sparkle, ScribbleCircle } from "./doodles/Doodles";
 
 export default function AboutSection() {
@@ -6,7 +7,7 @@ export default function AboutSection() {
     <section className="relative px-4 py-20 sm:py-28">
       <div className="mx-auto grid max-w-4xl grid-cols-1 items-center gap-12 sm:grid-cols-2">
         {/* polaroid placeholder photo */}
-        <div className="relative mx-auto w-full max-w-xs">
+        <Reveal className="relative mx-auto w-full max-w-xs">
           <Star className="absolute -top-6 -left-6 h-9 w-9 text-yellow animate-wiggle" />
           <Sparkle className="absolute -bottom-5 -right-4 h-8 w-8 text-blue animate-float" />
 
@@ -36,9 +37,9 @@ export default function AboutSection() {
           <StickerBadge color="lavender" rotate="3deg" className="absolute bottom-10 -left-12 hidden sm:flex">
             גאנטים וימי צילום
           </StickerBadge>
-        </div>
+        </Reveal>
 
-        <div className="relative text-center sm:text-right">
+        <Reveal delay={150} className="relative text-center sm:text-right">
           <ScribbleCircle className="absolute -top-10 right-1/4 hidden h-8 w-32 text-ink/15 sm:block" />
           <h2 className="font-display text-3xl sm:text-4xl">קצת עליי</h2>
 
@@ -57,7 +58,7 @@ export default function AboutSection() {
             שחשוב לדעת על אינסטגרם, קאנבה ו-AI, ולעזור לך ליצור תוכן שעובד
             לעסק שלך בצורה חכמה, ברורה ופרקטית.
           </p>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

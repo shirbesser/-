@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import Hero from "./components/Hero";
 import AboutSection from "./components/AboutSection";
+import StickyCTA from "./components/StickyCTA";
 import PainSection from "./sections/PainSection";
 import SolutionSection from "./sections/SolutionSection";
 import WhatsInsideSection from "./sections/WhatsInsideSection";
@@ -37,6 +38,7 @@ function App() {
       <SectionDivider />
       <CTASection ref={ctaRef} />
       <Footer />
+      <StickyCTA onClick={scrollToForm} />
     </div>
   );
 }

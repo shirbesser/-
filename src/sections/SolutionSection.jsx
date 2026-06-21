@@ -1,3 +1,4 @@
+import Reveal from "../components/Reveal";
 import { Star, Sparkle, ArrowSquiggleRight } from "../components/doodles/Doodles";
 
 export default function SolutionSection() {
@@ -17,7 +18,7 @@ export default function SolutionSection() {
         </p>
       </div>
 
-      <div className="relative mx-auto mt-12 max-w-2xl">
+      <Reveal className="relative mx-auto mt-12 max-w-2xl">
         <Star className="absolute -top-7 -right-3 h-9 w-9 text-yellow animate-wiggle sm:-right-8" />
         <Sparkle className="absolute -bottom-6 -left-3 h-8 w-8 text-blue animate-float sm:-left-8" />
         <ArrowSquiggleRight className="absolute -top-10 left-1/3 hidden h-10 w-28 rotate-180 text-ink/60 sm:block" />
@@ -32,7 +33,7 @@ export default function SolutionSection() {
             יותר סדר. יותר תוכן שעובד.
           </p>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }

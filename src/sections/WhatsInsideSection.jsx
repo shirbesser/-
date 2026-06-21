@@ -1,4 +1,5 @@
 import FeatureCard from "../components/FeatureCard";
+import Reveal from "../components/Reveal";
 import {
   IconCamera,
   IconPalette,
@@ -59,8 +60,10 @@ export default function WhatsInsideSection() {
       </div>
 
       <div className="mx-auto mt-12 grid max-w-4xl grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3">
-        {FEATURES.map((f) => (
-          <FeatureCard key={f.title} {...f} />
+        {FEATURES.map((f, i) => (
+          <Reveal key={f.title} delay={i * 80}>
+            <FeatureCard {...f} />
+          </Reveal>
         ))}
       </div>
     </section>

@@ -1,4 +1,5 @@
 import AudienceCard from "../components/AudienceCard";
+import Reveal from "../components/Reveal";
 import { IconBriefcase, IconBulb, IconChart } from "../components/doodles/Icons";
 
 const CARDS = [
@@ -35,8 +36,10 @@ export default function WhoItsForSection() {
       </div>
 
       <div className="mx-auto mt-12 grid max-w-4xl grid-cols-1 gap-8 sm:grid-cols-3">
-        {CARDS.map((c) => (
-          <AudienceCard key={c.title} {...c} />
+        {CARDS.map((c, i) => (
+          <Reveal key={c.title} delay={i * 100}>
+            <AudienceCard {...c} />
+          </Reveal>
         ))}
       </div>
     </section>

@@ -1,4 +1,5 @@
 import StickyNote from "../components/StickyNote";
+import Reveal from "../components/Reveal";
 import { Squiggle } from "../components/doodles/Doodles";
 
 const NOTES = [
@@ -35,16 +36,17 @@ export default function PainSection() {
 
       <div className="relative mx-auto mt-14 grid max-w-4xl grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-3 sm:gap-x-8 sm:gap-y-14">
         {NOTES.map((note, i) => (
-          <StickyNote
-            key={note.text}
-            color={note.color}
-            rotate={note.rotate}
-            className={`mx-auto w-full max-w-[170px] text-center animate-float${
-              i % 3 === 0 ? "" : i % 3 === 1 ? "-slow" : "-fast"
-            }`}
-          >
-            {note.text}
-          </StickyNote>
+          <Reveal key={note.text} delay={i * 90}>
+            <StickyNote
+              color={note.color}
+              rotate={note.rotate}
+              className={`mx-auto w-full max-w-[170px] text-center animate-float${
+                i % 3 === 0 ? "" : i % 3 === 1 ? "-slow" : "-fast"
+              }`}
+            >
+              {note.text}
+            </StickyNote>
+          </Reveal>
         ))}
       </div>
 

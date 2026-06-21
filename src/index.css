@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-  --font-display: "Secular One", "Rubik", sans-serif;
+  --font-display: "Rubik", sans-serif;
   --font-body: "Rubik", sans-serif;
-  --font-accent: "Karantina", "Rubik", sans-serif;
+  --font-accent: "Rubik", sans-serif;
 
   --color-cream: #fff9ef;
   --color-paper: #fffdf8;
@@ -52,9 +52,12 @@ body {
 
 .font-display {
   font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.01em;
 }
 .font-accent {
   font-family: var(--font-accent);
+  font-weight: 600;
 }
 
 .shadow-doodle {
