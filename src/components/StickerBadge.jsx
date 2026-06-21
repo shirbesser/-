@@ -14,8 +14,8 @@ export default function StickerBadge({
 }) {
   return (
     <span
-      className={`inline-flex items-center gap-1 rounded-full border-[2.5px] border-ink px-4 py-1.5 font-display text-sm shadow-doodle sm:text-base ${COLORS[color]} ${className}`}
-      style={{ transform: `rotate(${rotate})` }}
+      className={`tilt-badge inline-flex items-center gap-1 rounded-full border-[2.5px] border-ink px-4 py-1.5 font-display text-sm shadow-doodle sm:text-base ${COLORS[color]} ${className}`}
+      style={{ "--rot": rotate }}
     >
       {children}
     </span>

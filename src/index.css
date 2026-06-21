@@ -67,6 +67,33 @@ body {
   box-shadow: var(--shadow-doodle-lg);
 }
 
+/* rotated cards/badges that still get a working hover lift (inline --rot custom
+   property avoids the inline-style vs. hover-class specificity clash) */
+.tilt-card {
+  transform: rotate(var(--rot, 0deg));
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.tilt-card:hover {
+  transform: rotate(0deg) translateY(-6px) scale(1.04);
+  box-shadow: var(--shadow-doodle-lg);
+}
+.tilt-card:active {
+  transform: rotate(0deg) translateY(-2px) scale(1.01);
+}
+.tilt-card.animate-float:hover,
+.tilt-card.animate-float-slow:hover,
+.tilt-card.animate-float-fast:hover {
+  animation-play-state: paused;
+}
+
+.tilt-badge {
+  transform: rotate(var(--rot, 0deg));
+  transition: transform 0.2s ease;
+}
+.tilt-badge:hover {
+  transform: rotate(0deg) scale(1.08);
+}
+
 /* marker / highlighter underline behind text */
 .highlight-yellow,
 .highlight-pink,

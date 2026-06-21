@@ -12,7 +12,7 @@ export default function AboutSection() {
           <Sparkle className="absolute -bottom-5 -right-4 h-8 w-8 text-blue animate-float" />
 
           <div
-            className="relative -rotate-2 border-[3px] border-ink bg-paper p-4 pb-8 shadow-doodle-lg"
+            className="relative -rotate-2 border-[3px] border-ink bg-paper p-4 pb-8 shadow-doodle-lg transition-transform duration-300 hover:rotate-0 hover:scale-105"
             style={{ borderRadius: "4px" }}
           >
             <div className="flex aspect-[4/5] w-full items-center justify-center rounded-sm border-2 border-dashed border-ink/30 bg-gradient-to-br from-pink-light via-lavender-light to-blue-light">

@@ -28,7 +28,7 @@ const CARDS = [
 
 export default function WhoItsForSection() {
   return (
-    <section className="relative px-4 py-20 sm:py-28">
+    <section className="relative bg-blue-light/40 px-4 py-20 sm:py-28">
       <div className="mx-auto max-w-3xl text-center">
         <h2 className="font-display text-3xl sm:text-4xl">
           למי זה <span className="highlight-yellow">מתאים?</span>

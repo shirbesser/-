@@ -14,9 +14,9 @@ export default function StickyNote({
 }) {
   return (
     <div
-      className={`relative border-[2.5px] border-ink px-5 py-4 font-accent text-lg leading-snug shadow-doodle sm:text-xl ${COLORS[color]} ${className}`}
+      className={`tilt-card relative cursor-default border-[2.5px] border-ink px-5 py-4 font-accent text-lg leading-snug shadow-doodle sm:text-xl ${COLORS[color]} ${className}`}
       style={{
-        transform: `rotate(${rotate})`,
+        "--rot": rotate,
         borderRadius: "2px 14px 4px 14px / 14px 4px 14px 4px",
       }}
     >

@@ -13,7 +13,7 @@ const NOTES = [
 
 export default function PainSection() {
   return (
-    <section className="relative px-4 py-20 sm:py-28">
+    <section className="relative bg-pink-light/40 px-4 py-20 sm:py-28">
       <div className="mx-auto max-w-3xl text-center">
         <h2 className="font-display text-3xl leading-snug sm:text-4xl">
           מרגישה שכבר אי אפשר להבין
