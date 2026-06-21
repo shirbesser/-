@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:standalone": "vite build --config vite.config.standalone.js",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -26,6 +27,7 @@
     "globals": "^17.6.0",
     "postcss": "^8.5.15",
     "tailwindcss": "^4.3.1",
-    "vite": "^8.0.12"
+    "vite": "^8.0.12",
+    "vite-plugin-singlefile": "^2.3.3"
   }
 }
