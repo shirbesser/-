@@ -37,7 +37,7 @@ const FEATURES = [
   },
   {
     icon: <IconMic className="h-6 w-6 text-pink" />,
-    title: "לייבים קצרים ופירוקים מהשטח",
+    title: "פיצוחי פרופילים בלייב",
     color: "yellow",
     rotate: "-2deg",
   },
