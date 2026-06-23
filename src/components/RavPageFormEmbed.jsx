@@ -12,7 +12,7 @@ const FRAME_DOC = `<!doctype html>
 <html lang="he" dir="rtl">
   <head>
     <meta charset="UTF-8" />
-    <base target="_blank" />
+    <base href="https://form2.ravpage.co.il/" target="_blank" />
     <style>
       body { margin: 0; font-family: 'Rubik', sans-serif; }
     </style>
