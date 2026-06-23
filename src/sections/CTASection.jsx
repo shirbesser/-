@@ -26,6 +26,9 @@ const CTASection = forwardRef(function CTASection(_props, ref) {
       <Reveal className="relative mx-auto mt-10 max-w-xl">
         <Sparkle className="absolute -top-8 right-2 h-8 w-8 text-lavender animate-float hidden sm:block" />
         <RavPageFormEmbed />
+        <p className="mt-3 text-center text-sm text-ink/60">
+          שימו לב: אחרי המילוי תתבקשו לאשר שאתן לא בוטיות, ואז תועברו ללינק ההצטרפות.
+        </p>
       </Reveal>
     </section>
   );
