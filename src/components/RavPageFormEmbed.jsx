@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
 const FORM_SCRIPT_SRC =
-  "https://form2.ravpage.co.il/4e99c65ac1e851bd776143487af9f2906A383962";
+  "https://form2.ravpage.co.il/4aba56d67804e492581ad015fda01c6c6A3A6DCB";
 
 // This widget relies on document.write() to render itself, which only works
 // while a document is still being parsed. By the time a React effect runs,
