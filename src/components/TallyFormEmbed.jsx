@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-const TALLY_FORM_ID = "QKjWJp";
+const TALLY_FORM_ID = "KYOZJ7";
 const TALLY_EMBED_SRC = `https://tally.so/embed/${TALLY_FORM_ID}?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1`;
 
 export default function TallyFormEmbed() {
