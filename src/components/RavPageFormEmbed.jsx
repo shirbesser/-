@@ -14,6 +14,9 @@ export default function RavPageFormEmbed() {
     script.type = "text/javascript";
     script.src = FORM_SCRIPT_SRC;
     script.charset = "UTF-8";
+    // Without this, Chrome silently ignores document.write() calls made by
+    // async-loaded scripts, which is how this widget renders its markup.
+    script.async = false;
     container.appendChild(script);
 
     return () => {
