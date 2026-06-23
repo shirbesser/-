@@ -1,7 +1,8 @@
 import { forwardRef } from "react";
-import TallyFormEmbed from "../components/TallyFormEmbed";
 import Reveal from "../components/Reveal";
 import { Star, Sparkle, Squiggle } from "../components/doodles/Doodles";
+
+const TALLY_FORM_URL = "https://tally.so/r/KYOZJ7";
 
 const CTASection = forwardRef(function CTASection(_props, ref) {
   return (
@@ -23,12 +24,16 @@ const CTASection = forwardRef(function CTASection(_props, ref) {
         <Squiggle className="mx-auto mt-5 h-4 w-28 text-blue" />
       </div>
 
-      <Reveal className="relative mx-auto mt-10 max-w-xl">
+      <Reveal className="relative mx-auto mt-10 max-w-xl text-center">
         <Sparkle className="absolute -top-8 right-2 h-8 w-8 text-lavender animate-float hidden sm:block" />
-        <TallyFormEmbed />
-        <p className="mt-3 text-center text-sm text-ink/60">
-          שימו לב: אחרי המילוי תתבקשו לאשר שאתן לא בוטיות, ואז תועברו ללינק ההצטרפות.
-        </p>
+        <a
+          href={TALLY_FORM_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="shadow-doodle-lg inline-block rounded-full border-2 border-ink bg-pink px-10 py-5 font-display text-xl font-bold text-white transition hover:-translate-y-0.5"
+        >
+          להצטרפות לחצי כאן
+        </a>
       </Reveal>
     </section>
   );
