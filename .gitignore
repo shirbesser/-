@@ -23,3 +23,7 @@ dist-standalone
 *.njsproj
 *.sln
 *.sw?
+
+# covers pipeline: extracted frames and one-off renders are local only
+covers/frames/
+covers/out/
