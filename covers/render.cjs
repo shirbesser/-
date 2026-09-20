@@ -7,7 +7,10 @@
 //
 //   node covers/render.cjs --batch covers/covers.json            # many covers at once
 //
-// Options: --layout editorial|arch|series|number|split|deep   --size feed (1080x1350) | reel (1080x1920)
+// Options: --layout editorial|arch|series|number|split|deep   (with text)
+//          --layout photo|mat|window                           (image only, no text)
+//          --grade warm|soft|deep|off   one colour treatment for every frame   --mat tight|wide (mat only)
+//          --size feed (1080x1350) | reel (1080x1920)
 //          --tone blush|cream (series only)  --numeral "03" (number only)  --logo path/to/logo.png
 //          --headline-size 90   --frame-line   --jpg (write JPEG instead of PNG)
 const path = require('path');
@@ -72,6 +75,9 @@ async function main() {
       numeral: job.numeral,
       headlineSize: job.headlineSize,
       frameLine: !!job.frameLine,
+      textless: !!job.textless,
+      grade: job.grade,
+      mat: job.mat,
       logoLight: !!job.logoLight,
       focus: job.focus,
       image: image && fs.existsSync(image) ? fileUrl(image) : undefined,

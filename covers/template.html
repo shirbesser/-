@@ -144,6 +144,38 @@
   body[data-size="reel"][data-layout="series"] .photo { position: fixed; left: 0; right: 0; bottom: 0; height: 925px; }
   body[data-size="reel"][data-layout="series"] .logo-bg { position: fixed; height: 525px; }
   body[data-size="reel"][data-layout="split"] .photo { position: fixed; top: 0; height: 1085px; }
+
+  /* ---------- image-only looks (no text, no logo): uniform crop + colour grade ---------- */
+  body[data-textless] .text, body[data-textless] .logo, body[data-textless] .numeral, body[data-textless] .logo-bg { display: none !important; }
+  [data-layout="photo"] .page { background: var(--cream); }
+  [data-layout="photo"] .photo { inset: 0; }
+  body[data-size="reel"][data-layout="photo"] .photo { position: fixed; inset: 0; }
+  [data-layout="mat"] .page { background: var(--cream); }
+  /* sides get ~30px extra so the margins still read even after the grid's 3:4 side crop */
+  [data-layout="mat"] .photo { left: 92px; right: 92px; top: 64px; bottom: 64px; }
+  [data-layout="mat"][data-mat="wide"] .photo { left: 130px; right: 130px; top: 110px; bottom: 110px; }
+  [data-layout="window"] .page { background: var(--cream); }
+  [data-layout="window"] .photo { left: 50%; top: 80px; width: 860px; height: 1190px; transform: translateX(-50%); border-radius: 430px 430px 28px 28px; }
+  [data-layout="window"] .arch-line { position: absolute; left: 50%; top: 62px; width: 896px; height: 1226px; transform: translateX(-50%); border: 1px solid var(--gold); border-radius: 448px 448px 34px 34px; opacity: .7; }
+  [data-layout="window"] .arch-line.hidden { display: block !important; }
+
+  /* colour grade: one warm champagne treatment for every frame so the grid reads as one set */
+  .photo .grade { position: absolute; inset: 0; pointer-events: none; display: none; }
+  .photo[data-grade="warm"] img { filter: sepia(.32) saturate(.9) contrast(.95) brightness(1.05); }
+  .photo[data-grade="warm"] .grade { display: block;
+    background:
+      radial-gradient(120% 90% at 50% 40%, rgba(0,0,0,0) 55%, rgba(60,44,32,.22) 100%),
+      linear-gradient(180deg, rgba(236,220,202,.34), rgba(214,185,150,.30));
+    mix-blend-mode: soft-light; }
+  .photo[data-grade="warm"]::after { content: ""; position: absolute; inset: 0; background: rgba(232,210,186,.22); mix-blend-mode: multiply; pointer-events: none; }
+  .photo[data-grade="soft"] img { filter: sepia(.22) saturate(.8) contrast(.88) brightness(1.1); }
+  .photo[data-grade="soft"] .grade { display: block; background: linear-gradient(180deg, rgba(250,244,236,.55), rgba(240,226,210,.45)); mix-blend-mode: soft-light; }
+  .photo[data-grade="soft"]::after { content: ""; position: absolute; inset: 0; background: rgba(245,236,226,.14); pointer-events: none; }
+  .photo[data-grade="deep"] img { filter: sepia(.3) saturate(.85) contrast(1.04) brightness(.95); }
+  .photo[data-grade="deep"] .grade { display: block;
+    background: radial-gradient(110% 80% at 50% 35%, rgba(0,0,0,0) 45%, rgba(46,37,33,.55) 100%), linear-gradient(180deg, rgba(214,185,150,.25), rgba(120,92,66,.35));
+    mix-blend-mode: soft-light; }
+  .photo .frame-line { inset: 40px; }
   .hidden { display: none !important; }
 </style>
 </head>
@@ -158,6 +190,7 @@
           <path d="M40 20h120l30 45-90 85L10 65z"/><path d="M10 65h180M40 20l30 45 30-45 30 45 30-45M70 65l30 85 30-85"/>
         </svg>
       </div>
+      <div class="grade"></div>
       <div class="frame-line hidden"></div>
     </div>
     <div class="logo-bg hidden"></div>
@@ -182,6 +215,10 @@
     body.dataset.size = c.size || 'feed';
     body.dataset.tone = c.tone || 'blush';
     document.documentElement.style.setProperty('--H', body.dataset.size === 'reel' ? '1920px' : '1350px');
+    const textless = ['photo', 'mat', 'window'].includes(body.dataset.layout) || c.textless;
+    if (textless) body.setAttribute('data-textless', ''); else body.removeAttribute('data-textless');
+    body.dataset.mat = c.mat || 'tight';
+    document.querySelector('.photo').dataset.grade = c.grade || 'off';
 
     const rich = (s) => (s || '')
       .replace(/&/g, '&amp;').replace(/</g, '&lt;')
@@ -200,7 +237,7 @@
     setText('numeral', c.numeral, false);
     if (c.headlineSize) document.getElementById('headline').style.fontSize = c.headlineSize + 'px';
 
-    document.querySelector('.arch-line').classList.toggle('hidden', body.dataset.layout !== 'arch');
+    document.querySelector('.arch-line').classList.toggle('hidden', !['arch', 'window'].includes(body.dataset.layout));
     document.querySelector('.logo-bg').classList.toggle('hidden', body.dataset.layout !== 'series');
     document.querySelector('.frame-line').classList.toggle('hidden', !c.frameLine);
 

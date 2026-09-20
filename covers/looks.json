@@ -1,0 +1,5 @@
+[
+  { "layout": "photo",  "grade": "warm", "image": "frames/reel1_03.50s.jpg", "focus": "50% 45%", "out": "out/reel1-cover.jpg" },
+  { "layout": "photo",  "grade": "warm", "image": "frames/reel2_01.20s.jpg", "focus": "50% 50%", "out": "out/reel2-cover.jpg" },
+  { "layout": "photo",  "grade": "warm", "image": "frames/reel3_06.00s.jpg", "focus": "50% 40%", "out": "out/reel3-cover.jpg" }
+]
