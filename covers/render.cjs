@@ -88,6 +88,7 @@ async function main() {
       rotate: job.rotate ? parseFloat(job.rotate) : 0,
       deco: job.deco,
       noLogo: !!job.noLogo,
+      withLogo: !!job.withLogo,
       image: image && fs.existsSync(image) ? fileUrl(image) : undefined,
       logoImage: job.logo ? fileUrl(resolve(job.logo)) : undefined,
     };

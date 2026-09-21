@@ -148,6 +148,13 @@
 
   /* ---------- image-only looks (no text, no logo): uniform crop + colour grade ---------- */
   body[data-textless] .text, body[data-textless] .logo, body[data-textless] .numeral, body[data-textless] .logo-bg { display: none !important; }
+  body[data-textless][data-logo="with"] .logo { display: flex !important; position: absolute; left: 50%; bottom: 54px; transform: translateX(-50%); }
+  body[data-textless][data-logo="with"] .logo .wordmark { font-size: 22px; }
+  body[data-textless][data-logo="with"] .logo .subline { font-size: 11px; }
+  body[data-textless][data-logo="with"] .logo .subline::before, body[data-textless][data-logo="with"] .logo .subline::after { width: 56px; }
+  [data-layout="window"][data-logo="with"] .photo { top: 72px; height: 1090px; }
+  [data-layout="window"][data-logo="with"] .arch-line { top: 54px; height: 1126px; }
+  [data-layout="mat"][data-logo="with"] .photo { bottom: 150px; }
   [data-layout="photo"] .page { background: var(--cream); }
   [data-layout="photo"] .photo { inset: 0; }
   body[data-size="reel"][data-layout="photo"] .photo { position: fixed; inset: 0; }
@@ -239,7 +246,7 @@
     if (textless) body.setAttribute('data-textless', ''); else body.removeAttribute('data-textless');
     body.dataset.mat = c.mat || 'tight';
     body.dataset.deco = c.deco || 'arch';
-    body.dataset.logo = c.logo === false || c.noLogo ? 'off' : 'on';
+    body.dataset.logo = c.logo === false || c.noLogo ? 'off' : (c.withLogo ? 'with' : 'on');
     document.querySelector('.deco').classList.toggle('hidden', body.dataset.layout !== 'cutout');
     document.querySelector('.photo').style.setProperty('--rot', (c.rotate || 0) + 'deg');
     document.querySelector('.photo').dataset.grade = c.grade || 'off';
