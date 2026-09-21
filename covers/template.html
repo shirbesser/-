@@ -161,13 +161,13 @@
 
   /* colour grade: one warm champagne treatment for every frame so the grid reads as one set */
   .photo .grade { position: absolute; inset: 0; pointer-events: none; display: none; }
-  .photo[data-grade="warm"] img { filter: sepia(.32) saturate(.9) contrast(.95) brightness(1.05); }
+  .photo[data-grade="warm"] img { filter: sepia(.12) saturate(.94) contrast(.97) brightness(1.04); }
   .photo[data-grade="warm"] .grade { display: block;
     background:
       radial-gradient(120% 90% at 50% 40%, rgba(0,0,0,0) 55%, rgba(60,44,32,.22) 100%),
-      linear-gradient(180deg, rgba(236,220,202,.34), rgba(214,185,150,.30));
+      linear-gradient(180deg, rgba(236,220,202,.28), rgba(214,185,150,.22));
     mix-blend-mode: soft-light; }
-  .photo[data-grade="warm"]::after { content: ""; position: absolute; inset: 0; background: rgba(232,210,186,.22); mix-blend-mode: multiply; pointer-events: none; }
+  .photo[data-grade="warm"]::after { content: ""; position: absolute; inset: 0; background: rgba(240,222,204,.12); mix-blend-mode: multiply; pointer-events: none; }
   .photo[data-grade="soft"] img { filter: sepia(.22) saturate(.8) contrast(.88) brightness(1.1); }
   .photo[data-grade="soft"] .grade { display: block; background: linear-gradient(180deg, rgba(250,244,236,.55), rgba(240,226,210,.45)); mix-blend-mode: soft-light; }
   .photo[data-grade="soft"]::after { content: ""; position: absolute; inset: 0; background: rgba(245,236,226,.14); pointer-events: none; }
