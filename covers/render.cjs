@@ -11,6 +11,7 @@
 //          --layout photo|mat|window                           (image only, no text)
 //          --grade warm|soft|deep|off   one colour treatment for every frame   --mat tight|wide (mat only)
 //          --size feed (1080x1350) | reel (1080x1920)
+//          --focus "50% 20%" which part of the frame survives the crop   --zoom 1.4 crop tighter (e.g. to cut burned-in captions)
 //          --tone blush|cream (series only)  --numeral "03" (number only)  --logo path/to/logo.png
 //          --headline-size 90   --frame-line   --jpg (write JPEG instead of PNG)
 const path = require('path');
@@ -80,6 +81,7 @@ async function main() {
       mat: job.mat,
       logoLight: !!job.logoLight,
       focus: job.focus,
+      zoom: job.zoom ? parseFloat(job.zoom) : 1,
       image: image && fs.existsSync(image) ? fileUrl(image) : undefined,
       logoImage: job.logo ? fileUrl(resolve(job.logo)) : undefined,
     };
