@@ -50,6 +50,24 @@ node covers/render.cjs --batch covers/looks.json     # אצווה של קאבר�
 
 ההשוואה בין הלוקים והגריידים: `preview/looks-grid.png` (מודגם על פריימים סינתטיים).
 
+## חדות: פריים חד, בלי כתוביות, מוגדל חכם
+
+```bash
+# הפריים הכי חד בסביבת רגע (±0.5 שנ׳), מדורג לפי האזור של התכשיט (x y w h באחוזים), רק מאותו שוט
+python3 covers/sharpest.py covers/frames/reel3.mp4 --at 24.86 --window 0.5 --region "30 25 50 45"
+#    -> covers/frames/reel3_24.99s_sharp.png
+
+# הסרת כתובית / לוגו צרובים (אזור באחוזים; הטקסט הלבן מזוהה לבד ומתמלא מהסביבה)
+python3 covers/untext.py covers/frames/reel5_13.35s_sharp.png --region "15 55 70 9"
+#    -> ..._clean.png  (+ ..._mask.png לבדיקה)
+
+# הגדלה חכמה x2 (EDSR, ~4 דק׳ לפריים 720p על CPU) לפני החיתוך
+python3 covers/upscale.py covers/frames/reel5_13.35s_sharp_clean.png --scale 2
+#    -> ..._x2.png   ואז render עם --image על הקובץ המוגדל
+```
+
+דרישות לחלק הזה: `pip install opencv-contrib-python-headless numpy`. המודלים יורדים לבד ל-`covers/models/` (לא ב-git).
+
 ## תהליך עבודה
 
 ```bash
