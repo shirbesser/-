@@ -177,6 +177,24 @@
     background: radial-gradient(110% 80% at 50% 35%, rgba(0,0,0,0) 45%, rgba(46,37,33,.55) 100%), linear-gradient(180deg, rgba(214,185,150,.25), rgba(120,92,66,.35));
     mix-blend-mode: soft-light; }
   .photo .frame-line { inset: 40px; }
+
+  /* ---------- cutout: the jewelry itself (background removed) on a designed cream page ---------- */
+  [data-layout="cutout"] .page { background: radial-gradient(80% 55% at 50% 42%, #FBF7F1 0%, var(--cream) 60%, #EFE5D8 100%); }
+  [data-layout="cutout"] .photo { left: 50%; top: 50%; width: 820px; height: 980px; transform: translate(-50%, -54%); background: transparent; overflow: visible; }
+  [data-layout="cutout"] .photo img { object-fit: contain; transform: rotate(var(--rot, 0deg)) scale(var(--zoom, 1)); transform-origin: 50% 50%;
+    filter: drop-shadow(0 34px 38px rgba(60, 44, 32, .28)) drop-shadow(0 6px 10px rgba(60, 44, 32, .12)); }
+  [data-layout="cutout"] .photo .grade, [data-layout="cutout"] .photo::after { display: none !important; }
+  [data-layout="cutout"] .deco { position: absolute; left: 50%; top: 92px; width: 760px; height: 1040px; transform: translateX(-50%);
+    border: 1px solid var(--gold); border-radius: 380px 380px 30px 30px; opacity: .55; }
+  [data-layout="cutout"][data-deco="circle"] .deco { top: 150px; width: 860px; height: 860px; border-radius: 50%; }
+  [data-layout="cutout"][data-deco="none"] .deco { display: none; }
+  [data-layout="cutout"] .deco::after { content: ""; position: absolute; left: 50%; top: -1px; width: 14px; height: 14px; transform: translate(-50%, -50%) rotate(45deg); background: var(--cream); border: 1px solid var(--gold); }
+  [data-layout="cutout"] .logo { position: absolute; left: 50%; bottom: 60px; transform: translateX(-50%); }
+  [data-layout="cutout"] .logo .wordmark { font-size: 22px; }
+  [data-layout="cutout"] .logo .subline { font-size: 11px; }
+  [data-layout="cutout"] .logo .subline::before, [data-layout="cutout"] .logo .subline::after { width: 56px; }
+  [data-layout="cutout"][data-logo="off"] .logo { display: none; }
+  [data-layout="cutout"] .text { display: none; }
   .hidden { display: none !important; }
 </style>
 </head>
@@ -195,6 +213,7 @@
       <div class="frame-line hidden"></div>
     </div>
     <div class="logo-bg hidden"></div>
+    <div class="deco hidden"></div>
     <div class="numeral hidden" id="numeral"></div>
     <div class="text">
       <div class="kicker" id="kicker"></div>
@@ -219,6 +238,10 @@
     const textless = ['photo', 'mat', 'window'].includes(body.dataset.layout) || c.textless;
     if (textless) body.setAttribute('data-textless', ''); else body.removeAttribute('data-textless');
     body.dataset.mat = c.mat || 'tight';
+    body.dataset.deco = c.deco || 'arch';
+    body.dataset.logo = c.logo === false || c.noLogo ? 'off' : 'on';
+    document.querySelector('.deco').classList.toggle('hidden', body.dataset.layout !== 'cutout');
+    document.querySelector('.photo').style.setProperty('--rot', (c.rotate || 0) + 'deg');
     document.querySelector('.photo').dataset.grade = c.grade || 'off';
 
     const rich = (s) => (s || '')

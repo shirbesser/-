@@ -9,6 +9,7 @@
 //
 // Options: --layout editorial|arch|series|number|split|deep   (with text)
 //          --layout photo|mat|window                           (image only, no text)
+//          --layout cutout --image cut.png [--deco arch|circle|none] [--rotate -12] [--zoom .9] [--no-logo]   (jewelry cut out on cream)
 //          --grade warm|soft|deep|off   one colour treatment for every frame   --mat tight|wide (mat only)
 //          --size feed (1080x1350) | reel (1080x1920)
 //          --zoom 1.6 crop tighter; --center "40% 55%" = the point of the source frame to put in the middle of the crop
@@ -84,6 +85,9 @@ async function main() {
       focus: job.focus,
       zoom: job.zoom ? parseFloat(job.zoom) : 1,
       center: job.center,
+      rotate: job.rotate ? parseFloat(job.rotate) : 0,
+      deco: job.deco,
+      noLogo: !!job.noLogo,
       image: image && fs.existsSync(image) ? fileUrl(image) : undefined,
       logoImage: job.logo ? fileUrl(resolve(job.logo)) : undefined,
     };

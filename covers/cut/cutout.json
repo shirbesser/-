@@ -1,0 +1,11 @@
+[
+  { "layout": "cutout", "image": "reel1_cut.png", "out": "../out/cut-reel1.jpg" },
+  { "layout": "cutout", "image": "reel3_cut.png", "out": "../out/cut-reel3.jpg" },
+  { "layout": "cutout", "image": "reel4_cut.png", "zoom": 0.85, "out": "../out/cut-reel4.jpg" },
+  { "layout": "cutout", "image": "reel5_crop_isnet_cut.png", "out": "../out/cut-reel5-isnet.jpg" },
+  { "layout": "cutout", "image": "reel5_crop_u2net_cut.png", "out": "../out/cut-reel5-u2net.jpg" },
+  { "layout": "cutout", "image": "reel2_crop_isnet_cut.png", "zoom": 0.8, "out": "../out/cut-reel2-isnet.jpg" },
+  { "layout": "cutout", "image": "reel2_crop_u2net_cut.png", "zoom": 0.8, "out": "../out/cut-reel2-u2net.jpg" },
+  { "layout": "cutout", "deco": "circle", "image": "reel3_cut.png", "out": "../out/cut-reel3-circle.jpg" },
+  { "layout": "cutout", "deco": "none", "noLogo": true, "image": "reel1_cut.png", "out": "../out/cut-reel1-plain.jpg" }
+]

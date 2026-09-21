@@ -28,3 +28,4 @@ dist-standalone
 covers/frames/
 covers/out/
 covers/models/
+covers/cut/*.png
