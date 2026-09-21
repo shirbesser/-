@@ -11,7 +11,8 @@
 //          --layout photo|mat|window                           (image only, no text)
 //          --grade warm|soft|deep|off   one colour treatment for every frame   --mat tight|wide (mat only)
 //          --size feed (1080x1350) | reel (1080x1920)
-//          --focus "50% 20%" which part of the frame survives the crop   --zoom 1.4 crop tighter (e.g. to cut burned-in captions)
+//          --zoom 1.6 crop tighter; --center "40% 55%" = the point of the source frame to put in the middle of the crop
+//          (--focus "50% 20%" is the lower-level object-position alternative when --center is not given)
 //          --tone blush|cream (series only)  --numeral "03" (number only)  --logo path/to/logo.png
 //          --headline-size 90   --frame-line   --jpg (write JPEG instead of PNG)
 const path = require('path');
@@ -82,6 +83,7 @@ async function main() {
       logoLight: !!job.logoLight,
       focus: job.focus,
       zoom: job.zoom ? parseFloat(job.zoom) : 1,
+      center: job.center,
       image: image && fs.existsSync(image) ? fileUrl(image) : undefined,
       logoImage: job.logo ? fileUrl(resolve(job.logo)) : undefined,
     };
