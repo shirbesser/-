@@ -27,7 +27,8 @@ A standalone, dependency-free sales page for **המדריך לבוסט באינ�
 
 Before launch, replace the placeholders marked in the file:
 
-- `PURCHASE_URL` in the `<script>` at the bottom is set to the Grow checkout link; change it there to update every "אני רוצה את המדריך" button.
+- CTAs: every "אני רוצה את המדריך" button scrolls to the RavPages lead form (`#lead`), which should redirect to the Grow checkout after submit (configured in RavPages). Set `CTA_MODE = "purchase"` in the `<script>` at the bottom to send buttons straight to `PURCHASE_URL` instead.
+- The RavPages form widget is embedded inline in the `#lead-form` container (it renders with `document.write`, so the script tag must stay where it is). Its fields and button are restyled by the `.lead-form` rules.
 - The guide cover images are the RavPages uploads Shir sent (three `<img data-placeholder="guide-cover">` tags); a designed CSS cover renders if they fail to load.
 - Shir's portrait at `boost-guide/assets/shir.png`.
 - Fonts: FB Jambo for Hebrew headlines and FB Spoiler Regular and Bold for Hebrew body text (all in `boost-guide/assets/`); Karantina and Heebo from Google Fonts cover Latin and digits.

@@ -467,7 +467,7 @@ button{font:inherit;color:inherit}
 /* ------------------------------------------------------------------
    ABOUT
 ------------------------------------------------------------------ */
-.about__grid{display:grid;gap:2.5rem;align-items:center}
+.about__grid{display:grid;gap:2.5rem;align-items:start}
 @media (min-width:860px){.about__grid{grid-template-columns:.8fr 1.2fr;gap:4rem}}
 .portrait{position:relative;width:min(100%,380px);margin-inline:auto;aspect-ratio:1/1.1}
 .portrait__bg{position:absolute;inset:8% 4% 0 4%;border-radius:48% 52% 45% 55% / 55% 45% 55% 45%;background:linear-gradient(160deg,var(--blush),var(--pink));}
@@ -509,6 +509,66 @@ button{font:inherit;color:inherit}
 .product__mini .mockup__fallback .meta{font-size:.55rem}
 .product__mini .mockup__fallback .en{font-size:.45rem}
 .product__tags{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.5rem}
+
+/* ------------------------------------------------------------------
+   LEAD FORM (RavPages widget, styled generically)
+------------------------------------------------------------------ */
+.signup{position:relative;overflow:hidden}
+.lead__grid{display:grid;gap:2.2rem;align-items:center}
+@media (min-width:900px){.lead__grid{grid-template-columns:1fr 1fr;gap:4rem}}
+.lead__card{
+  position:relative;background:var(--white);border:2px solid var(--ink);border-radius:var(--radius-xl);
+  padding:clamp(1.4rem,3.5vw,2.4rem);box-shadow:0 50px 100px -40px rgba(255,63,152,.5), var(--shadow-soft);
+}
+.lead__card::before{content:"";position:absolute;inset:0 0 auto 0;height:10px;background:linear-gradient(90deg,var(--hot),var(--pink),var(--blush));border-radius:var(--radius-xl) var(--radius-xl) 0 0}
+.lead__card .sticker{position:absolute;top:-1rem;left:1.4rem;--rot:-4deg}
+.lead__head{display:grid;gap:.4rem;margin-bottom:1.2rem}
+.lead__head strong{font-size:1.25rem;font-weight:800}
+.lead__head span{color:var(--muted);font-size:.95rem}
+.lead__price{display:flex;align-items:baseline;gap:.6rem;margin-top:.4rem}
+.lead__price .price{font-size:2.6rem}
+.lead__price .fine{font-weight:600}
+.lead__points{list-style:none;padding:0;margin:1.4rem 0 0;display:grid;gap:.75rem}
+.lead__points li{display:flex;gap:.7rem;align-items:flex-start;font-weight:500;line-height:1.5}
+.lead__points li svg{width:20px;height:20px;flex:none;margin-top:.2rem;stroke:var(--hot);fill:none;stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round}
+.lead__secure{margin-top:1rem;display:flex;align-items:center;gap:.5rem;font-size:.86rem;color:var(--muted);font-weight:600}
+.lead__secure svg{width:16px;height:16px;fill:var(--hot)}
+
+/* the widget writes its own markup here; these rules restyle whatever it renders */
+.lead-form{direction:rtl;text-align:right;font-family:var(--font-body)}
+.lead-form *{box-sizing:border-box!important;font-family:var(--font-body)!important;max-width:100%}
+.lead-form table,.lead-form tbody,.lead-form tr,.lead-form td,.lead-form th{display:block!important;width:100%!important;padding:0!important;margin:0!important;border:0!important;background:transparent!important}
+.lead-form form{display:grid;gap:.85rem;margin:0!important;padding:0!important;background:transparent!important;border:0!important;width:100%!important}
+.lead-form label{display:block;font-weight:700;font-size:.9rem;color:var(--ink);margin:0 0 .3rem!important}
+.lead-form input:not([type="submit"]):not([type="button"]):not([type="checkbox"]):not([type="radio"]):not([type="hidden"]),
+.lead-form select,.lead-form textarea{
+  display:block!important;width:100%!important;height:auto!important;
+  padding:.95rem 1.15rem!important;margin:0!important;
+  border:2px solid var(--blush)!important;border-radius:16px!important;
+  background:var(--bg)!important;color:var(--ink)!important;
+  font-size:1.02rem!important;line-height:1.3!important;font-weight:500!important;
+  box-shadow:none!important;outline:none!important;text-align:right!important;direction:rtl!important;
+  transition:border-color .2s, box-shadow .2s;
+}
+.lead-form input::placeholder,.lead-form textarea::placeholder{color:rgba(26,26,26,.45)!important;opacity:1!important}
+.lead-form input:focus,.lead-form select:focus,.lead-form textarea:focus{border-color:var(--hot)!important;box-shadow:0 0 0 4px rgba(255,63,152,.15)!important}
+.lead-form input[type="checkbox"],.lead-form input[type="radio"]{width:18px!important;height:18px!important;accent-color:var(--hot);margin:0 0 0 .5rem!important;vertical-align:middle}
+.lead-form input[type="submit"],.lead-form input[type="button"],.lead-form button{
+  display:block!important;width:100%!important;height:auto!important;margin:.4rem 0 0!important;
+  padding:1.1rem 1.6rem!important;border:0!important;border-radius:999px!important;cursor:pointer!important;
+  background:linear-gradient(180deg,var(--pink) 0%,var(--hot) 100%)!important;color:var(--white)!important;
+  font-size:1.2rem!important;font-weight:800!important;line-height:1!important;text-align:center!important;
+  box-shadow:var(--shadow-cta)!important;text-shadow:none!important;
+  transition:transform .22s cubic-bezier(.2,.8,.2,1), box-shadow .22s;
+}
+.lead-form input[type="submit"]:hover,.lead-form input[type="button"]:hover,.lead-form button:hover{transform:translateY(-3px);box-shadow:0 20px 44px -12px rgba(255,63,152,.7), inset 0 -3px 0 rgba(0,0,0,.09), inset 0 2px 0 rgba(255,255,255,.4)!important}
+.lead-form img{display:inline-block;max-width:100%}
+.lead-form [style*="color: red"],.lead-form [style*="color:red"],.lead-form .error{color:var(--hot)!important;font-size:.88rem}
+.lead-form p,.lead-form div{color:var(--ink)}
+.lead-form a{color:var(--hot)}
+.lead-form iframe{max-width:100%}
+.lead-form__fallback{margin-top:.9rem;font-size:.9rem;color:var(--muted);text-align:center}
+.lead-form__fallback a{color:var(--hot);font-weight:700}
 
 /* ------------------------------------------------------------------
    FAQ
@@ -595,7 +655,7 @@ button{font:inherit;color:inherit}
 
 <!-- ============================================================
      PLACEHOLDERS TO REPLACE BEFORE LAUNCH
-     1. Purchase link -> PURCHASE_URL in the <script> at the bottom (already set to the Grow checkout)
+     1. CTA target     -> CTA_MODE / PURCHASE_URL in the <script> at the bottom (buttons scroll to the RavPages form by default)
      2. Guide cover   -> <img data-placeholder="guide-cover"> (already set to the RavPages uploads)
      3. Shir portrait -> <img data-placeholder="shir-portrait">
      ============================================================ -->
@@ -650,7 +710,7 @@ button{font:inherit;color:inherit}
 
       <div class="hero__buy">
         <span class="price"><span>49</span><small>₪</small></span>
-        <a class="btn btn--lg" href="https://pay.grow.link/b46b0ab1dfe817077b378add38f1d7f5-MzIxMDMyMA" target="_blank" rel="noopener" data-purchase>אני רוצה את המדריך<svg aria-hidden="true"><use href="#i-arrow" style="stroke:currentColor;fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round"/></svg></a>
+        <a class="btn btn--lg" href="#lead" data-purchase>אני רוצה את המדריך<svg aria-hidden="true"><use href="#i-arrow" style="stroke:currentColor;fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round"/></svg></a>
         <span class="fine">גישה מיידית לאחר הרכישה · מהדורת ספטמבר 2026 · 54 עמודים · כולל AI</span>
       </div>
 
@@ -974,12 +1034,15 @@ button{font:inherit;color:inherit}
         <h2 class="display h2" id="about-title" style="margin-top:.8rem">היי, אני שיר</h2>
         <div class="about__name">שיר בסר ריחני <span>· אסטרטגית אינסטגרם ו־AI</span></div>
         <div class="copy stack" style="margin-top:1.1rem">
-          <p>בניתי קהילה של 30K עוקבים דרך תוכן, עקביות ושימוש אסטרטגי בבוסט.</p>
-          <p>המדריך הזה מבוסס על הדרך שבה אני עובדת בעצמי: בוסטים אמיתיים, נתונים אמיתיים, כסף אמיתי, עבודה עם לקוחות וגם לא מעט ניסויים שלא עבדו.</p>
+          <p>לפני שנכנסתי לעולם התוכן והשיווק הייתי עורכת דין, ואיכשהו גם היום החלק הזה בי מאוד נוכח בדרך שבה אני עובדת: אני אוהבת להבין למה משהו עובד, להסתכל על הנתונים ולא להסתפק ב־"נראה לי".</p>
+          <p>בשנתיים האחרונות בניתי קהילה של יותר מ־30K עוקבים באינסטגרם, ניהלתי סושיאל וקמפיינים לעשרות לקוחות, ועזרתי למאות בעלות ובעלי עסקים להבין איך להשתמש באינסטגרם, בתוכן וב־AI בצורה חכמה יותר.</p>
+          <p>והדרך ל־30K לא נבנתה מריל אחד שהתפוצץ או מטריק סודי.<br />היא נבנתה מהמון תוכן, עקביות, בדיקות, בוסטים, מספרים — וגם לא מעט פעמים שבהן שמתי כסף על משהו והבנתי בדיעבד שהוא פשוט לא היה שווה את זה.</p>
+          <p>עם הזמן למדתי לזהות מה באמת משפיע על התוצאה:<br />איזה ריל שווה לקדם, איזה נתון חשוב יותר מלייקים, מתי לתת לבוסט לעבוד, מתי לעצור, ואיך להשתמש בו כדי להביא את התוכן הנכון ליותר מהאנשים הנכונים.</p>
+          <p><strong>המדריך הזה מבוסס בדיוק על זה.</strong><br />לא על תאוריה ולא על טיפים שאספתי באינטרנט, אלא על העבודה שלי עם החשבון שלי ועם לקוחות, על כסף אמיתי שהושקע, על ניסויים שעבדו — וגם על אלה שלא.</p>
         </div>
         <div class="about__care">
-          <p>וזה חשוב לי:</p>
-          <p>אני לא רוצה שתעשי בוסט כי אמרו לך שכדאי.<br />אני רוצה שתדעי <strong>למה את עושה אותו ומה את רוצה לראות ממנו.</strong></p>
+          <p>אני לא רוצה שתעשי בוסט רק כי נראה לך שהריל טוב.</p>
+          <p>אני רוצה שתדעי <strong>למה את מקדמת אותו, למי, מה את מצפה לראות, ואיך להבין אם הוא באמת עושה את העבודה.</strong></p>
         </div>
       </div>
     </div>
@@ -1025,8 +1088,46 @@ button{font:inherit;color:inherit}
           <img data-placeholder="guide-cover" src="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/0b/bf/22/5c/0bbf225c1f3424e97030484a99068b89/images/d818f4a4cad0c23030b37ac30ff4718f.png?cc=8" data-fallback="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/0b/bf/22/5c/0bbf225c1f3424e97030484a99068b89/images/d818f4a4cad0c23030b37ac30ff4718f.png?cc=8&amp;convert=webp&amp;maxWidth=250&amp;maxHeight=175" alt="" onerror="if(!this.dataset.tried){this.dataset.tried=1;this.src=this.dataset.fallback}else{this.hidden=true}" />
         </div>
         <span class="price"><span>49</span><small>₪</small></span>
-        <a class="btn btn--lg btn--full" href="https://pay.grow.link/b46b0ab1dfe817077b378add38f1d7f5-MzIxMDMyMA" target="_blank" rel="noopener" data-purchase>אני רוצה את המדריך</a>
+        <a class="btn btn--lg btn--full" href="#lead" data-purchase>אני רוצה את המדריך</a>
         <span class="fine">גישה מיידית לאחר הרכישה</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ LEAD FORM ============================ -->
+<section class="section section--white signup" id="lead" aria-labelledby="lead-title">
+  <span class="deco float" aria-hidden="true" style="top:10%;left:6%;width:26px;height:26px;--rot:12deg"><svg><use href="#i-star"/></svg></span>
+  <span class="deco float--slow float deco--blush" aria-hidden="true" style="bottom:14%;right:4%;width:20px;height:20px"><svg><use href="#i-heart"/></svg></span>
+  <div class="wrap">
+    <div class="lead__grid">
+      <div class="reveal">
+        <span class="eyebrow">Almost there</span>
+        <h2 class="display h2" id="lead-title" style="margin-top:.8rem">עוד רגע והמדריך אצלך</h2>
+        <div class="copy stack" style="margin-top:1.2rem">
+          <p>משאירה פרטים כאן, עוברת לתשלום מאובטח, ומקבלת את המדריך מיד אחרי הרכישה.</p>
+        </div>
+        <ul class="lead__points">
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>54 עמודים, 13 פרקים, מהדורת ספטמבר 2026</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Retention, Skip Rate, Trial Reels, Advantage+ ו־3 פרומפטים ל־AI</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Checklist לפני כל בוסט, כדי לא לנחש</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>גישה מיידית, קובץ PDF להורדה</li>
+        </ul>
+        <div class="lead__price"><span class="price"><span>49</span><small>₪</small></span><span class="fine">תשלום חד־פעמי</span></div>
+      </div>
+
+      <div class="lead__card reveal" data-delay="1">
+        <span class="sticker sticker--en sticker--hot">Boost Smarter</span>
+        <div class="lead__head">
+          <strong>אני רוצה את המדריך</strong>
+          <span>הפרטים שלך נשמרים אצלי בלבד. אחרי השליחה עוברים לתשלום.</span>
+        </div>
+        <div class="lead-form" id="lead-form">
+          <!-- RavPages form widget: renders itself here with document.write, so it must stay inline. -->
+          <script type="text/javascript" src="https://form2.ravpage.co.il/18b6c16d41c5b4d847f84b17cc4a13d66ABA6804" charset="UTF-8"></script>
+        </div>
+        <p class="lead-form__fallback">הטופס לא נטען? <a href="https://pay.grow.link/b46b0ab1dfe817077b378add38f1d7f5-MzIxMDMyMA" target="_blank" rel="noopener">אפשר לעבור ישירות לתשלום</a></p>
+        <div class="lead__secure"><svg aria-hidden="true"><use href="#i-heart"/></svg>בלי ספאם. רק המדריך, ומדי פעם עדכון שווה.</div>
       </div>
     </div>
   </div>
@@ -1096,7 +1197,7 @@ button{font:inherit;color:inherit}
       <p class="final__product">המדריך לבוסט באינסטגרם — מהדורת ספטמבר 2026</p>
       <div class="final__buy">
         <span class="price"><span>49</span><small>₪</small></span>
-        <a class="btn btn--lg" href="https://pay.grow.link/b46b0ab1dfe817077b378add38f1d7f5-MzIxMDMyMA" target="_blank" rel="noopener" data-purchase>אני רוצה את המדריך</a>
+        <a class="btn btn--lg" href="#lead" data-purchase>אני רוצה את המדריך</a>
         <span class="fine" style="color:rgba(255,255,255,.6)">גישה מיידית לאחר הרכישה</span>
       </div>
     </div>
@@ -1126,20 +1227,22 @@ button{font:inherit;color:inherit}
 <!-- sticky mobile CTA -->
 <div class="sticky" id="sticky" aria-hidden="true">
   <div class="sticky__price"><b>49 ₪</b><span>גישה מיידית</span></div>
-  <a class="btn" href="https://pay.grow.link/b46b0ab1dfe817077b378add38f1d7f5-MzIxMDMyMA" target="_blank" rel="noopener" data-purchase tabindex="-1">אני רוצה את המדריך</a>
+  <a class="btn" href="#lead" data-purchase tabindex="-1">אני רוצה את המדריך</a>
 </div>
 
 <script>
 (function(){
   /* ---------------------------------------------------------------
-     Checkout link (Grow). Change it here to update every button.
-     Every "אני רוצה את המדריך" button reads from this constant.
-     Leave it empty to make the buttons scroll to the final section instead.
+     Where every "אני רוצה את המדריך" button goes.
+       CTA_MODE = "form"     -> scrolls to the RavPages form (#lead); the form
+                                redirects to checkout after submit (set in RavPages).
+       CTA_MODE = "purchase" -> opens the Grow checkout link directly.
   --------------------------------------------------------------- */
+  var CTA_MODE = "form";
   var PURCHASE_URL = "https://pay.grow.link/b46b0ab1dfe817077b378add38f1d7f5-MzIxMDMyMA";
 
   var ctas = document.querySelectorAll("[data-purchase]");
-  if (PURCHASE_URL) {
+  if (CTA_MODE === "purchase" && PURCHASE_URL) {
     ctas.forEach(function(a){ a.href = PURCHASE_URL; a.target = "_blank"; a.rel = "noopener"; });
   }
 
@@ -1150,7 +1253,7 @@ button{font:inherit;color:inherit}
   /* sticky CTA (mobile): appears after the hero, hides on the final section */
   var sticky = document.getElementById("sticky");
   var hero = document.querySelector(".hero");
-  var final = document.getElementById("purchase");
+  var final = document.getElementById(CTA_MODE === "form" ? "lead" : "purchase");
   function updateSticky(){
     if (!sticky || !hero) return;
     var past = window.scrollY > hero.offsetHeight * 0.75;
