@@ -402,12 +402,13 @@ button{font:inherit;color:inherit}
 .proof{position:relative;overflow:hidden;background:linear-gradient(160deg,var(--pink) 0%,var(--hot) 60%,#ff2a8a 100%);color:var(--white)}
 .proof__k{
   font-family:var(--font-display);font-weight:700;line-height:.78;direction:ltr;
-  font-size:clamp(9rem,30vw,22rem);color:var(--white);
+  font-size:clamp(8.5rem,24vw,16rem);color:var(--white);white-space:nowrap;
   text-shadow:0 24px 60px rgba(160,0,80,.35);letter-spacing:-.01em;
 }
-.proof__k span{display:inline-block;color:transparent;-webkit-text-stroke:3px rgba(255,255,255,.85)}
+.proof__k span{display:inline;color:transparent;-webkit-text-stroke:3px rgba(255,255,255,.85)}
 .proof__grid{display:grid;gap:2.4rem;align-items:center;position:relative}
-@media (min-width:900px){.proof__grid{grid-template-columns:.9fr 1.1fr;gap:3.5rem}}
+@media (min-width:900px){.proof__grid{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:3.5rem}}
+.proof__grid > *{min-width:0}
 .proof__card{
   background:var(--white);color:var(--ink);border-radius:var(--radius-xl);padding:clamp(1.6rem,4vw,2.6rem);
   box-shadow:0 40px 80px -30px rgba(120,0,60,.5);
