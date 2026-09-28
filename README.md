@@ -27,6 +27,6 @@ A standalone, dependency-free sales page for **המדריך לבוסט באינ�
 
 Before launch, replace the placeholders marked in the file:
 
-- `PURCHASE_URL` in the `<script>` at the bottom (every "אני רוצה את המדריך" button reads it).
+- `PURCHASE_URL` in the `<script>` at the bottom is set to the Grow checkout link; change it there to update every "אני רוצה את המדריך" button.
 - The guide cover images (`<img data-placeholder="guide-cover">`, three places). A designed fallback cover renders if the image fails to load.
 - Shir's portrait at `boost-guide/assets/shir.png` (`<img data-placeholder="shir-portrait">`).

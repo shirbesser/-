@@ -570,7 +570,7 @@ button{font:inherit;color:inherit}
 
 <!-- ============================================================
      PLACEHOLDERS TO REPLACE BEFORE LAUNCH
-     1. PURCHASE_URL  -> in the <script> at the bottom of the page
+     1. Purchase link -> PURCHASE_URL in the <script> at the bottom (already set to the Grow checkout)
      2. Guide cover   -> <img data-placeholder="guide-cover"> (2 places)
      3. Shir portrait -> <img data-placeholder="shir-portrait">
      ============================================================ -->
@@ -625,7 +625,7 @@ button{font:inherit;color:inherit}
 
       <div class="hero__buy">
         <span class="price"><span>49</span><small>₪</small></span>
-        <a class="btn btn--lg" href="#purchase" data-purchase>אני רוצה את המדריך<svg aria-hidden="true"><use href="#i-arrow" style="stroke:currentColor;fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round"/></svg></a>
+        <a class="btn btn--lg" href="https://pay.grow.link/b46b0ab1dfe817077b378add38f1d7f5-MzIxMDMyMA" target="_blank" rel="noopener" data-purchase>אני רוצה את המדריך<svg aria-hidden="true"><use href="#i-arrow" style="stroke:currentColor;fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round"/></svg></a>
         <span class="fine">גישה מיידית לאחר הרכישה · מהדורת ספטמבר 2026 · 54 עמודים · כולל AI</span>
       </div>
 
@@ -1000,7 +1000,7 @@ button{font:inherit;color:inherit}
           <img data-placeholder="guide-cover" src="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/0b/bf/22/5c/0bbf225c1f3424e97030484a99068b89/images/d818f4a4cad0c23030b37ac30ff4718f.png?cc=8&amp;convert=webp&amp;maxWidth=250&amp;maxHeight=175" alt="" onerror="this.hidden=true" />
         </div>
         <span class="price"><span>49</span><small>₪</small></span>
-        <a class="btn btn--lg btn--full" href="#purchase" data-purchase>אני רוצה את המדריך</a>
+        <a class="btn btn--lg btn--full" href="https://pay.grow.link/b46b0ab1dfe817077b378add38f1d7f5-MzIxMDMyMA" target="_blank" rel="noopener" data-purchase>אני רוצה את המדריך</a>
         <span class="fine">גישה מיידית לאחר הרכישה</span>
       </div>
     </div>
@@ -1071,7 +1071,7 @@ button{font:inherit;color:inherit}
       <p class="final__product">המדריך לבוסט באינסטגרם — מהדורת ספטמבר 2026</p>
       <div class="final__buy">
         <span class="price"><span>49</span><small>₪</small></span>
-        <a class="btn btn--lg" href="#purchase" data-purchase>אני רוצה את המדריך</a>
+        <a class="btn btn--lg" href="https://pay.grow.link/b46b0ab1dfe817077b378add38f1d7f5-MzIxMDMyMA" target="_blank" rel="noopener" data-purchase>אני רוצה את המדריך</a>
         <span class="fine" style="color:rgba(255,255,255,.6)">גישה מיידית לאחר הרכישה</span>
       </div>
     </div>
@@ -1101,17 +1101,17 @@ button{font:inherit;color:inherit}
 <!-- sticky mobile CTA -->
 <div class="sticky" id="sticky" aria-hidden="true">
   <div class="sticky__price"><b>49 ₪</b><span>גישה מיידית</span></div>
-  <a class="btn" href="#purchase" data-purchase tabindex="-1">אני רוצה את המדריך</a>
+  <a class="btn" href="https://pay.grow.link/b46b0ab1dfe817077b378add38f1d7f5-MzIxMDMyMA" target="_blank" rel="noopener" data-purchase tabindex="-1">אני רוצה את המדריך</a>
 </div>
 
 <script>
 (function(){
   /* ---------------------------------------------------------------
-     PLACEHOLDER: set the real checkout link here.
+     Checkout link (Grow). Change it here to update every button.
      Every "אני רוצה את המדריך" button reads from this constant.
-     Leave it empty to keep the buttons scrolling to the final section.
+     Leave it empty to make the buttons scroll to the final section instead.
   --------------------------------------------------------------- */
-  var PURCHASE_URL = "";
+  var PURCHASE_URL = "https://pay.grow.link/b46b0ab1dfe817077b378add38f1d7f5-MzIxMDMyMA";
 
   var ctas = document.querySelectorAll("[data-purchase]");
   if (PURCHASE_URL) {
