@@ -32,4 +32,6 @@ Before launch, replace the placeholders marked in the file:
 - Shir's portrait at `boost-guide/assets/shir.png`.
 - Fonts: FB Jambo for Hebrew headlines and FB Spoiler Regular and Bold for Hebrew body text (all in `boost-guide/assets/`); Karantina and Heebo from Google Fonts cover Latin and digits.
 
+`boost-guide/thank-you.html` is the post-purchase page with the Google Drive download link (same design). Its RavPages versions are `ravpages-thank-you.html` and `ravpages-thank-you-lite.html`, built with `--page thank-you`.
+
 `boost-guide/ravpages-embed.html` is a self-contained copy for pasting into an HTML block in RavPages: same page with the portrait and fonts inlined as data URIs and all CSS classes prefixed `bg-` so the host page's styles cannot collide. `boost-guide/ravpages-embed-lite.html` is the same block at ~70KB, loading the fonts and portrait from this repo's public GitHub URLs instead (use it if the RavPages editor truncates the large one). Regenerate both after editing `index.html` with `python3 boost-guide/build-embed.py` and `python3 boost-guide/build-embed.py --remote`.

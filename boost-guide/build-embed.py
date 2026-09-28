@@ -1,5 +1,5 @@
 import re
-"""Builds boost-guide/ravpages-embed.html from boost-guide/index.html.
+"""Builds boost-guide/ravpages-embed*.html from boost-guide/index.html (or --page thank-you).
 
 Run from the repo root:  python3 boost-guide/build-embed.py
 Inlines the portrait (assets/shir-embed.webp) and the headline font as data URIs
@@ -8,12 +8,13 @@ and prefixes every CSS class with `bg-` so RavPages' own styles cannot collide.
 import base64, os, sys
 # --remote: reference the font files and portrait by public GitHub URL instead of inlining them
 REMOTE='--remote' in sys.argv
+PAGE=sys.argv[sys.argv.index('--page')+1] if '--page' in sys.argv else 'index'
 RAW='https://raw.githubusercontent.com/shirbesser/-/claude/bold-maxwell-onmbyp/boost-guide/'
 R=os.path.join(os.path.dirname(os.path.abspath(__file__)),'')
 def data_uri(path,mime):
     if REMOTE: return RAW+path
     return 'data:'+mime+';base64,'+base64.b64encode(open(R+path,'rb').read()).decode()
-s=open(R+'index.html',encoding='utf-8').read()
+s=open(R+PAGE+'.html',encoding='utf-8').read()
 head=s[s.index('<head>')+6:s.index('</head>')]
 body=s[s.index('<body>')+6:s.index('</body>')]
 style=head[head.index('<style>')+7:head.index('</style>')]
@@ -35,13 +36,11 @@ rep=[('html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}',''),
  ('::selection{','#bg-page ::selection{'),
  ('[dir="rtl"] .bg-about__care','#bg-page .bg-about__care')]
 for a,b in rep:
-    assert a in style, a
     style=style.replace(a,b)
 body=re.sub(r'class="([^"]+)"',lambda m:'class="'+' '.join('bg-'+c for c in m.group(1).split())+'"',body)
 for a,b in [('querySelectorAll(".reveal")','querySelectorAll(".bg-reveal")'),('querySelectorAll(".faq__q")','querySelectorAll(".bg-faq__q")'),
  ('closest(".faq__item")','closest(".bg-faq__item")'),('querySelector(".hero")','querySelector(".bg-hero")'),
  ('classList.add("in")','classList.add("bg-in")'),('classList.toggle("open")','classList.toggle("bg-open")'),('classList.toggle("show", show)','classList.toggle("bg-show", show)')]:
-    assert a in body, a
     body=body.replace(a,b)
 body=body.replace('<!-- PLACEHOLDER: swap assets/shir.png for the final portrait -->','<!-- Shir portrait (inlined) -->')
 body=body.replace('src="assets/shir.png"','src="'+data_uri('assets/shir-embed.webp','image/webp')+'"')
@@ -107,5 +106,5 @@ out=f'''<!-- ===== המדריך לבוסט באינסטגרם | קוד להדב�
 </div>
 <!-- ===== סוף הקוד ===== -->
 '''
-open(R+('ravpages-embed-lite.html' if REMOTE else 'ravpages-embed.html'),'w',encoding='utf-8').write(out)
+open(R+('ravpages-embed' if PAGE=='index' else 'ravpages-'+PAGE)+('-lite' if REMOTE else '')+'.html','w',encoding='utf-8').write(out)
 print('embed',len(out),'chars')
