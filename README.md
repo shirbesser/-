@@ -30,6 +30,6 @@ Before launch, replace the placeholders marked in the file:
 - `PURCHASE_URL` in the `<script>` at the bottom is set to the Grow checkout link; change it there to update every "אני רוצה את המדריך" button.
 - The guide cover images are the RavPages uploads Shir sent (three `<img data-placeholder="guide-cover">` tags); a designed CSS cover renders if they fail to load.
 - Shir's portrait at `boost-guide/assets/shir.png`.
-- Headline font: FB Jambo (`boost-guide/assets/FbJambo-Regular.otf`) for Hebrew; Karantina from Google Fonts covers Latin and digits.
+- Fonts: FB Jambo for Hebrew headlines and FB Spoiler for Hebrew body text (both in `boost-guide/assets/`); Karantina and Heebo from Google Fonts cover Latin and digits.
 
 `boost-guide/ravpages-embed.html` is a self-contained copy for pasting into an HTML block in RavPages: same page with the portrait and font inlined as data URIs and all CSS classes prefixed `bg-` so the host page's styles cannot collide. Regenerate it after editing `index.html` with `python3 boost-guide/build-embed.py`.

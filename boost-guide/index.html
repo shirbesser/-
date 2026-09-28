@@ -13,6 +13,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&family=Karantina:wght@400;700&display=swap" rel="stylesheet" />
 <style>
+/* Body font: FB Spoiler for Hebrew glyphs; Heebo covers Latin and digits. */
+@font-face{
+  font-family:"FB Spoiler";
+  src:url("assets/FbSpoiler-Regular.otf") format("opentype");
+  font-weight:300 900;
+  font-display:swap;
+  unicode-range:U+0590-05FF, U+FB1D-FB4F;
+}
 /* Headline font: FB Jambo for Hebrew glyphs; Karantina covers Latin and digits. */
 @font-face{
   font-family:"FB Jambo";
@@ -37,7 +45,7 @@
   --blush-line:rgba(255,63,152,.22);
 
   --font-display:"FB Jambo","Karantina","Heebo","Arial Hebrew","Arial",sans-serif;
-  --font-body:"Heebo","Arial Hebrew","Arial",sans-serif;
+  --font-body:"FB Spoiler","Heebo","Arial Hebrew","Arial",sans-serif;
 
   --radius-xl:32px;
   --radius-lg:24px;
