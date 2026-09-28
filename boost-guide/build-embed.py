@@ -44,6 +44,7 @@ body=re.sub(r'<!-- =+\n     PLACEHOLDERS.*?=+ -->\n','',body,flags=re.S)
 assert 'assets/shir.png' not in body
 style=style.replace('url("assets/FbJambo-Regular.otf")','url("data:font/otf;base64,'+data_uri('assets/FbJambo-Regular.otf','font/otf')[len('data:font/otf;base64,'):]+'")')
 style=style.replace('url("assets/FbSpoiler-Regular.otf")','url("data:font/otf;base64,'+data_uri('assets/FbSpoiler-Regular.otf','font/otf')[len('data:font/otf;base64,'):]+'")')
+style=style.replace('url("assets/FbSpoiler-Bold.otf")','url("data:font/otf;base64,'+data_uri('assets/FbSpoiler-Bold.otf','font/otf')[len('data:font/otf;base64,'):]+'")')
 assert 'assets/' not in style
 out=f'''<!-- ===== המדריך לבוסט באינסטגרם | קוד להדבקה בבלוק HTML ברב מסר ===== -->
 <!-- לינק לתשלום: מופיע על כל הכפתורים וגם במשתנה PURCHASE_URL בסוף הקוד -->
