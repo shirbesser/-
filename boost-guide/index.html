@@ -1,0 +1,1166 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>המדריך לבוסט באינסטגרם</title>
+<meta name="description" content="המדריך לבוסט באינסטגרם — מהדורת ספטמבר 2026. 54 עמודים על איך לבחור איזה ריל שווה בוסט, לאיזה קהל, בכמה כסף ואיך למדוד אם זה באמת עובד. כולל Retention, Skip Rate, Trial Reels, Advantage+ ו־3 פרומפטים ל־AI." />
+<meta property="og:title" content="המדריך לבוסט באינסטגרם — מהדורת ספטמבר 2026" />
+<meta property="og:description" content="לפני שאת שמה עוד כסף על בוסט, תדעי אם הריל הזה בכלל שווה אותו." />
+<meta name="theme-color" content="#FF3F98" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23FF3F98' d='M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7.1L12 17.3 5.7 21l1.7-7.1L2 9.2l7.1-.6z'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&family=Karantina:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+/* ------------------------------------------------------------------
+   TOKENS
+------------------------------------------------------------------ */
+:root{
+  --bg:#FFF7FB;
+  --blush:#FAD8E8;
+  --pink:#FF77B7;
+  --hot:#FF3F98;
+  --ink:#1A1A1A;
+  --white:#FFFFFF;
+  --muted:rgba(26,26,26,.68);
+  --line:rgba(26,26,26,.09);
+  --blush-line:rgba(255,63,152,.22);
+
+  --font-display:"Karantina","Heebo","Arial Hebrew","Arial",sans-serif;
+  --font-body:"Heebo","Arial Hebrew","Arial",sans-serif;
+
+  --radius-xl:32px;
+  --radius-lg:24px;
+  --radius-md:18px;
+  --radius-pill:999px;
+
+  --shadow-soft:0 20px 50px -24px rgba(26,26,26,.18), 0 2px 6px -2px rgba(26,26,26,.06);
+  --shadow-pink:0 24px 60px -24px rgba(255,63,152,.45), 0 4px 12px -6px rgba(255,63,152,.25);
+  --shadow-cta:0 14px 34px -10px rgba(255,63,152,.6), inset 0 -3px 0 rgba(0,0,0,.09), inset 0 2px 0 rgba(255,255,255,.4);
+
+  --gutter:clamp(16px, 4vw, 40px);
+  --section:clamp(72px, 10vw, 128px);
+  --max:1120px;
+
+  color-scheme:light;
+}
+
+/* ------------------------------------------------------------------
+   BASE
+------------------------------------------------------------------ */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--font-body);
+  font-size:1.0625rem;
+  line-height:1.75;
+  direction:rtl;
+  text-align:right;
+  overflow-x:hidden;
+  font-feature-settings:"kern";
+}
+img,svg{max-width:100%;display:block}
+[hidden]{display:none!important}
+h1,h2,h3,h4{margin:0;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+button{font:inherit;color:inherit}
+::selection{background:var(--blush);color:var(--ink)}
+:focus-visible{outline:3px solid var(--hot);outline-offset:3px;border-radius:6px}
+
+.wrap{max-width:var(--max);margin-inline:auto;padding-inline:var(--gutter)}
+.section{padding-block:var(--section)}
+.section--white{background:var(--white)}
+.section--blush{background:linear-gradient(180deg,var(--bg) 0%,var(--blush) 100%)}
+.section--ink{background:var(--ink);color:var(--white)}
+
+/* type */
+.display{
+  font-family:var(--font-display);
+  font-weight:700;
+  line-height:.92;
+  letter-spacing:.005em;
+}
+.h1{font-size:clamp(4.2rem, 13vw, 9.5rem)}
+.h2{font-size:clamp(2.9rem, 7.2vw, 5.4rem);max-width:16ch}
+.h3{font-family:var(--font-body);font-weight:800;font-size:1.22rem;line-height:1.35}
+.lead{font-size:clamp(1.28rem, 2.4vw, 1.6rem);font-weight:700;line-height:1.45;max-width:24ch}
+.copy{max-width:56ch;color:var(--ink)}
+.copy--muted{color:var(--muted)}
+.copy p + p{margin-top:.9em}
+.stack{display:grid;gap:1.1rem}
+.center{text-align:center}
+.center .h2,.center .lead,.center .copy{margin-inline:auto}
+
+.eyebrow{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-size:.72rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--hot);direction:ltr;
+}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--hot);border-radius:2px}
+
+/* sticker labels */
+.sticker{
+  display:inline-flex;align-items:center;gap:.4rem;
+  padding:.42rem .95rem;border-radius:var(--radius-pill);
+  background:var(--white);color:var(--ink);
+  border:2px solid var(--ink);
+  font-size:.82rem;font-weight:800;line-height:1.2;white-space:nowrap;
+  box-shadow:2px 3px 0 0 var(--ink);
+  transform:rotate(var(--rot,0deg));
+  transition:transform .25s cubic-bezier(.2,.8,.2,1);
+}
+.sticker:hover{transform:rotate(0deg) scale(1.05)}
+.sticker--en{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;direction:ltr}
+.sticker--hot{background:var(--hot);color:var(--white)}
+.sticker--blush{background:var(--blush)}
+.sticker--ink{background:var(--ink);color:var(--white);border-color:var(--ink);box-shadow:2px 3px 0 0 var(--hot)}
+.sticker svg{width:.9em;height:.9em}
+
+/* glossy CTA */
+.btn{
+  position:relative;isolation:isolate;overflow:hidden;
+  display:inline-flex;align-items:center;justify-content:center;gap:.65rem;
+  padding:1.05rem 2.2rem;border:0;border-radius:var(--radius-pill);
+  background:linear-gradient(180deg,var(--pink) 0%,var(--hot) 100%);
+  color:var(--white);font-weight:800;font-size:1.2rem;line-height:1;
+  text-decoration:none;cursor:pointer;white-space:nowrap;
+  box-shadow:var(--shadow-cta);
+  transition:transform .22s cubic-bezier(.2,.8,.2,1), box-shadow .22s;
+}
+.btn::before{ /* gloss */
+  content:"";position:absolute;inset:3px 8px auto 8px;height:46%;border-radius:var(--radius-pill);
+  background:linear-gradient(180deg,rgba(255,255,255,.55),rgba(255,255,255,.04));
+  pointer-events:none;z-index:1;
+}
+.btn::after{ /* shine sweep */
+  content:"";position:absolute;top:-40%;bottom:-40%;width:38%;left:-60%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);
+  transform:skewX(-18deg);transition:left .7s ease;pointer-events:none;
+}
+.btn:hover{transform:translateY(-3px);box-shadow:0 20px 44px -12px rgba(255,63,152,.7), inset 0 -3px 0 rgba(0,0,0,.09), inset 0 2px 0 rgba(255,255,255,.4)}
+.btn:hover::after{left:130%}
+.btn:active{transform:translateY(0) scale(.99)}
+.btn svg{width:1.05em;height:1.05em;flex:none}
+.btn--lg{padding:1.2rem 2.6rem;font-size:1.3rem}
+.btn--full{width:100%}
+.btn--ink{background:linear-gradient(180deg,#3a3a3a,var(--ink));box-shadow:0 14px 34px -10px rgba(26,26,26,.5), inset 0 2px 0 rgba(255,255,255,.15)}
+
+.price{
+  display:inline-flex;align-items:baseline;gap:.35rem;
+  font-family:var(--font-display);font-weight:700;line-height:1;
+  font-size:clamp(3rem, 6vw, 4rem);
+  font-variant-numeric:tabular-nums;
+}
+.price small{font-family:var(--font-body);font-weight:700;font-size:.42em;color:var(--muted)}
+.fine{font-size:.86rem;color:var(--muted);font-weight:500}
+
+/* cards */
+.card{
+  background:var(--white);border-radius:var(--radius-lg);
+  padding:1.6rem;box-shadow:var(--shadow-soft);
+  border:1px solid rgba(255,63,152,.08);
+  transition:transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s;
+}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow-pink)}
+.grid{display:grid;gap:1.1rem}
+@media (min-width:640px){.grid--2{grid-template-columns:repeat(2,1fr)}.grid--3{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:960px){.grid--3{grid-template-columns:repeat(3,1fr)}}
+
+.icon-badge{
+  width:52px;height:52px;border-radius:16px;display:grid;place-items:center;
+  background:linear-gradient(145deg,var(--blush),var(--bg));color:var(--hot);
+  border:1px solid var(--blush-line);
+}
+.icon-badge svg{width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+
+/* decorative stars / hearts */
+.deco{position:absolute;pointer-events:none;color:var(--hot);opacity:.9}
+.deco svg{width:100%;height:100%;fill:currentColor}
+.deco--blush{color:var(--pink)}
+.float{animation:float 6s ease-in-out infinite}
+.float--slow{animation-duration:8.5s}
+.float--fast{animation-duration:4.4s}
+@keyframes float{0%,100%{transform:translateY(0) rotate(var(--rot,0deg))}50%{transform:translateY(-10px) rotate(var(--rot,0deg))}}
+.spin{animation:spin 18s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* reveal */
+.reveal{opacity:.55;transform:translateY(22px);transition:opacity .7s ease, transform .8s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal[data-delay="1"]{transition-delay:.08s}
+.reveal[data-delay="2"]{transition-delay:.16s}
+.reveal[data-delay="3"]{transition-delay:.24s}
+
+/* marquee strip */
+.marquee{
+  background:var(--ink);color:var(--white);overflow:hidden;
+  padding-block:.85rem;border-block:2px solid var(--ink);
+  font-size:.78rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;direction:ltr;
+}
+.marquee__track{display:flex;width:max-content;gap:0;animation:marquee 36s linear infinite}
+.marquee__track span{display:inline-flex;align-items:center;gap:1.4rem;padding-inline:.7rem;white-space:nowrap}
+.marquee__track svg{width:12px;height:12px;fill:var(--hot)}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* ------------------------------------------------------------------
+   HERO
+------------------------------------------------------------------ */
+.hero{position:relative;overflow:hidden;padding-block:clamp(40px,7vw,96px) clamp(64px,9vw,112px)}
+.hero__bg{position:absolute;inset:0;z-index:0;pointer-events:none}
+.hero__bg i{position:absolute;border-radius:50%;filter:blur(60px);opacity:.75}
+.hero__bg i:nth-child(1){width:52vw;height:52vw;max-width:640px;max-height:640px;background:var(--blush);top:-18%;left:-10%}
+.hero__bg i:nth-child(2){width:36vw;height:36vw;max-width:460px;max-height:460px;background:rgba(255,119,183,.35);bottom:-12%;right:-6%}
+.hero__bg i:nth-child(3){width:26vw;height:26vw;max-width:300px;max-height:300px;background:var(--white);top:30%;right:35%}
+.hero__inner{position:relative;z-index:1;display:grid;gap:3rem;align-items:center}
+@media (min-width:920px){.hero__inner{grid-template-columns:1.05fr .95fr;gap:3.5rem}}
+
+.hero__badges{display:flex;flex-wrap:wrap;gap:.65rem .6rem;margin-top:.4rem}
+.hero .h1{margin-top:1.1rem}
+.hero .lead{margin-top:1.4rem}
+.hero .copy{margin-top:1.25rem;font-size:1.08rem}
+.hero__cred{
+  margin-top:1.6rem;display:flex;gap:.9rem;align-items:flex-start;
+  background:var(--white);border-radius:var(--radius-md);padding:1.05rem 1.2rem;
+  border:1px solid var(--blush-line);box-shadow:var(--shadow-soft);max-width:560px;
+}
+.hero__cred svg{width:22px;height:22px;flex:none;fill:var(--hot);margin-top:.25rem}
+.hero__cred p{font-size:.98rem;line-height:1.65}
+.hero__cred strong{color:var(--hot)}
+.hero__buy{margin-top:1.7rem;display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.6rem}
+.hero__buy .fine{width:100%}
+
+/* mockup */
+.mockup{position:relative;margin-inline:auto;width:min(100%,420px);aspect-ratio:1/1.05}
+.mockup__cover{
+  position:absolute;inset:6% 12% 6% 12%;
+  border-radius:22px;overflow:hidden;
+  background:var(--ink);
+  box-shadow:0 40px 80px -30px rgba(255,63,152,.55), 0 16px 40px -20px rgba(26,26,26,.35);
+  transform:rotate(-4deg);
+  transition:transform .5s cubic-bezier(.2,.8,.2,1);
+}
+.mockup:hover .mockup__cover{transform:rotate(-2deg) translateY(-6px)}
+.mockup__cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2}
+.mockup__fallback{
+  position:absolute;inset:0;padding:clamp(1.2rem,5%,2rem);
+  background:
+    radial-gradient(120% 80% at 100% 0%, rgba(255,119,183,.55), transparent 60%),
+    radial-gradient(90% 70% at 0% 100%, rgba(255,63,152,.7), transparent 60%),
+    var(--ink);
+  color:var(--white);display:flex;flex-direction:column;justify-content:space-between;
+}
+.mockup__fallback .display{font-size:clamp(2.6rem,9vw,4rem);line-height:.9}
+.mockup__fallback .en{font-size:.64rem;letter-spacing:.24em;text-transform:uppercase;direction:ltr;text-align:left;color:var(--blush);font-weight:800}
+.mockup__fallback .meta{display:flex;justify-content:space-between;align-items:flex-end;font-size:.82rem;font-weight:700;color:var(--blush)}
+.mockup__spine{position:absolute;inset:0 auto 0 0;width:8%;background:linear-gradient(90deg,rgba(255,255,255,.12),rgba(255,255,255,0));z-index:3}
+.mockup__gloss{position:absolute;inset:0;background:linear-gradient(160deg,rgba(255,255,255,.28) 0%,rgba(255,255,255,0) 42%);z-index:4;pointer-events:none}
+
+.mockup__peek{
+  position:absolute;right:-2%;bottom:0;width:42%;aspect-ratio:1/1.35;
+  border-radius:16px;overflow:hidden;background:var(--white);
+  box-shadow:0 24px 50px -20px rgba(26,26,26,.35);transform:rotate(6deg);
+  border:4px solid var(--white);z-index:5;
+}
+.mockup__peek img{width:100%;height:100%;object-fit:cover}
+.mockup__peek-fallback{position:absolute;inset:0;padding:.9rem;background:linear-gradient(180deg,var(--bg),var(--blush));display:flex;flex-direction:column;gap:.5rem}
+.mockup__peek-fallback i{display:block;height:7px;border-radius:4px;background:rgba(26,26,26,.12)}
+.mockup__peek-fallback i:nth-child(1){width:70%;background:var(--hot)}
+.mockup__peek-fallback i:nth-child(3){width:85%}
+.mockup__peek-fallback i:nth-child(4){width:55%}
+.mockup__peek-fallback b{margin-top:auto;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;direction:ltr;text-align:left;color:var(--hot)}
+
+.mockup__tag{position:absolute;z-index:6}
+.mockup__tag--1{top:2%;right:2%;--rot:8deg}
+.mockup__tag--2{bottom:16%;left:0;--rot:-7deg}
+.mockup__price{
+  position:absolute;z-index:6;top:8%;left:0;
+  width:96px;height:96px;border-radius:50%;
+  background:var(--hot);color:var(--white);
+  display:grid;place-items:center;text-align:center;
+  font-family:var(--font-display);font-weight:700;font-size:2.2rem;line-height:.9;
+  box-shadow:0 18px 40px -14px rgba(255,63,152,.7), inset 0 2px 0 rgba(255,255,255,.4);
+  --rot:-10deg;
+}
+.mockup__price small{font-family:var(--font-body);font-size:.6rem;font-weight:800;letter-spacing:.14em;display:block;text-transform:uppercase;direction:ltr}
+
+/* ------------------------------------------------------------------
+   PROBLEM
+------------------------------------------------------------------ */
+.problem__grid{display:grid;gap:2.6rem;align-items:start}
+@media (min-width:900px){.problem__grid{grid-template-columns:1fr 1fr;gap:4rem}}
+.qs{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.4rem}
+.qs span{
+  padding:.55rem 1rem;border-radius:var(--radius-pill);background:var(--white);
+  border:1px solid var(--blush-line);font-weight:600;font-size:.95rem;box-shadow:var(--shadow-soft);
+}
+.problem__punch{margin-top:1.6rem}
+.problem__punch strong{background:linear-gradient(transparent 55%,var(--blush) 55%);padding-inline:.15em}
+
+.contrast{display:grid;gap:1.1rem;margin-top:2.6rem}
+@media (min-width:720px){.contrast{grid-template-columns:1fr 1fr}}
+.contrast__card{border-radius:var(--radius-xl);padding:1.8rem 1.7rem;position:relative;overflow:hidden}
+.contrast__card--no{background:var(--ink);color:var(--white)}
+.contrast__card--yes{background:var(--white);border:2px solid var(--hot);box-shadow:var(--shadow-pink)}
+.contrast__title{display:flex;align-items:center;gap:.7rem;font-family:var(--font-display);font-size:3rem;line-height:1;font-weight:700;margin-bottom:1.1rem}
+.contrast__title i{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;flex:none}
+.contrast__card--no .contrast__title i{background:rgba(255,255,255,.12)}
+.contrast__card--yes .contrast__title i{background:var(--hot);color:var(--white)}
+.contrast__title svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:3;stroke-linecap:round}
+.contrast ul{list-style:none;margin:0;padding:0;display:grid;gap:.7rem}
+.contrast li{display:flex;gap:.7rem;align-items:flex-start;line-height:1.5;font-weight:500}
+.contrast li svg{width:18px;height:18px;flex:none;margin-top:.3rem;stroke:currentColor;fill:none;stroke-width:2.6;stroke-linecap:round}
+.contrast__card--no li{color:rgba(255,255,255,.78);text-decoration:line-through;text-decoration-color:var(--hot);text-decoration-thickness:2px}
+.contrast__card--no li svg{color:var(--hot)}
+.contrast__card--yes li svg{color:var(--hot)}
+.contrast__card--no::after{content:"";position:absolute;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(255,63,152,.35),transparent 70%);left:-60px;bottom:-80px}
+.note{
+  margin-top:1.4rem;display:flex;gap:.8rem;align-items:flex-start;
+  background:var(--blush);border-radius:var(--radius-md);padding:1rem 1.2rem;font-size:.98rem;line-height:1.6;
+}
+.note svg{width:20px;height:20px;flex:none;fill:var(--hot);margin-top:.2rem}
+
+/* ------------------------------------------------------------------
+   INSIDE (feature cards)
+------------------------------------------------------------------ */
+.feature{display:flex;flex-direction:column;gap:1rem;position:relative}
+.feature .h3{margin-top:.2rem}
+.feature p{color:var(--muted);font-size:.98rem;line-height:1.65}
+.feature__tag{position:absolute;top:1.1rem;left:1.1rem}
+.feature--hot{background:linear-gradient(160deg,var(--hot),var(--pink));color:var(--white);border:0}
+.feature--hot .icon-badge{background:rgba(255,255,255,.18);color:var(--white);border-color:rgba(255,255,255,.3)}
+.feature--hot p{color:rgba(255,255,255,.88)}
+.section__head{display:grid;gap:1rem;margin-bottom:clamp(2.2rem,5vw,3.6rem)}
+
+/* ------------------------------------------------------------------
+   2026 (ink section)
+------------------------------------------------------------------ */
+.new{position:relative;overflow:hidden}
+.new .h2{color:var(--white)}
+.new .lead{color:var(--pink)}
+.new .copy{color:rgba(255,255,255,.75)}
+.new__bg{position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(60% 50% at 100% 0%, rgba(255,63,152,.35), transparent 60%),
+    radial-gradient(50% 40% at 0% 100%, rgba(255,119,183,.25), transparent 60%);
+}
+.new__year{
+  position:absolute;top:-4%;left:-2%;
+  font-family:var(--font-display);font-weight:700;font-size:clamp(9rem,28vw,24rem);line-height:.8;
+  color:transparent;-webkit-text-stroke:2px rgba(255,255,255,.12);pointer-events:none;direction:ltr;user-select:none;
+}
+.new__head{position:relative;display:grid;gap:1rem;margin-bottom:clamp(2.2rem,5vw,3.4rem)}
+.new__label{display:flex;align-items:center;gap:1rem;color:var(--pink);font-weight:800;margin-bottom:1.2rem;font-size:.95rem;position:relative}
+.new__label::after{content:"";flex:1;height:1px;background:rgba(255,255,255,.14)}
+.new__grid{position:relative;display:grid;gap:1rem}
+@media (min-width:640px){.new__grid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1000px){.new__grid{grid-template-columns:repeat(3,1fr)}.new__grid > :nth-child(4){grid-column:span 1}}
+.ncard{
+  position:relative;border-radius:var(--radius-lg);padding:1.6rem;
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);
+  display:flex;flex-direction:column;gap:.8rem;
+  transition:transform .3s cubic-bezier(.2,.8,.2,1), background .3s, border-color .3s;
+}
+.ncard:hover{transform:translateY(-4px);background:rgba(255,63,152,.12);border-color:rgba(255,63,152,.5)}
+.ncard .h3{color:var(--white);font-size:1.3rem;padding-left:5.5rem}
+.ncard p{color:rgba(255,255,255,.72);font-size:.97rem;line-height:1.65}
+.ncard .sticker{position:absolute;top:1.2rem;left:1.2rem}
+.ncard__n{font-family:var(--font-display);font-size:2.4rem;line-height:1;color:var(--hot);font-weight:700}
+
+/* ------------------------------------------------------------------
+   30K PROOF
+------------------------------------------------------------------ */
+.proof{position:relative;overflow:hidden;background:linear-gradient(160deg,var(--pink) 0%,var(--hot) 60%,#ff2a8a 100%);color:var(--white)}
+.proof__k{
+  font-family:var(--font-display);font-weight:700;line-height:.78;direction:ltr;
+  font-size:clamp(9rem,30vw,22rem);color:var(--white);
+  text-shadow:0 24px 60px rgba(160,0,80,.35);letter-spacing:-.01em;
+}
+.proof__k span{display:inline-block;color:transparent;-webkit-text-stroke:3px rgba(255,255,255,.85)}
+.proof__grid{display:grid;gap:2.4rem;align-items:center;position:relative}
+@media (min-width:900px){.proof__grid{grid-template-columns:.9fr 1.1fr;gap:3.5rem}}
+.proof__card{
+  background:var(--white);color:var(--ink);border-radius:var(--radius-xl);padding:clamp(1.6rem,4vw,2.6rem);
+  box-shadow:0 40px 80px -30px rgba(120,0,60,.5);
+}
+.proof .h2{color:var(--white)}
+.proof__lines{list-style:none;padding:0;margin:1.3rem 0;display:grid;gap:.4rem}
+.proof__lines li{font-family:var(--font-display);font-weight:700;font-size:clamp(1.9rem,4vw,2.6rem);line-height:1.05;color:var(--hot)}
+.proof__lines li::before{content:"✕ ";font-family:var(--font-body);font-size:.55em;vertical-align:.3em;color:var(--ink);opacity:.5}
+.proof__quote{
+  margin-top:1.6rem;padding-top:1.4rem;border-top:2px dashed var(--blush);
+  font-weight:700;font-size:1.05rem;line-height:1.6;
+}
+.proof__not{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.4rem}
+.proof__not span{padding:.45rem .9rem;border-radius:var(--radius-pill);background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.4);font-weight:700;font-size:.92rem}
+.proof__not span.yes{background:var(--white);color:var(--hot);border-color:var(--white)}
+.proof__side{display:grid;gap:1rem;justify-items:start}
+.proof__side .sticker{--rot:-4deg}
+.proof__side .copy{color:rgba(255,255,255,.9)}
+
+/* ------------------------------------------------------------------
+   AI
+------------------------------------------------------------------ */
+.ai{position:relative;overflow:hidden}
+.ai__big{
+  font-family:var(--font-display);font-weight:700;line-height:.8;direction:ltr;
+  font-size:clamp(9rem,34vw,26rem);
+  background:linear-gradient(180deg,var(--pink),var(--hot));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  text-align:center;margin-block:.5rem 1.4rem;
+  filter:drop-shadow(0 30px 40px rgba(255,63,152,.25));
+}
+.ai__wrap{display:grid;gap:1rem;justify-items:center;text-align:center}
+.ai__cards{margin-top:clamp(2rem,5vw,3.4rem)}
+.acard{display:flex;flex-direction:column;gap:.9rem;text-align:right}
+.acard__q{font-family:var(--font-display);font-size:2.2rem;line-height:1;color:var(--hot);font-weight:700}
+.acard .h3{font-size:1.15rem}
+.acard p{color:var(--muted);font-size:.98rem;line-height:1.65}
+.ai__foot{margin-top:2rem;text-align:center}
+
+/* ------------------------------------------------------------------
+   WHO
+------------------------------------------------------------------ */
+.who__list{list-style:none;padding:0;margin:0;display:grid;gap:.85rem;max-width:720px}
+.who__list li{
+  display:flex;gap:1rem;align-items:center;
+  background:var(--white);border-radius:var(--radius-md);padding:1.05rem 1.25rem;
+  box-shadow:var(--shadow-soft);font-weight:600;font-size:1.05rem;line-height:1.5;
+  border:1px solid var(--blush-line);
+  transition:transform .3s cubic-bezier(.2,.8,.2,1);
+}
+.who__list li:hover{transform:translateX(-6px)}
+.who__list li i{width:34px;height:34px;flex:none;border-radius:50%;background:var(--blush);display:grid;place-items:center}
+.who__list li svg{width:16px;height:16px;fill:var(--hot)}
+.who__grid{display:grid;gap:2.5rem;align-items:center}
+@media (min-width:900px){.who__grid{grid-template-columns:.85fr 1.15fr;gap:4rem}}
+
+/* ------------------------------------------------------------------
+   ABOUT
+------------------------------------------------------------------ */
+.about__grid{display:grid;gap:2.5rem;align-items:center}
+@media (min-width:860px){.about__grid{grid-template-columns:.8fr 1.2fr;gap:4rem}}
+.portrait{position:relative;width:min(100%,380px);margin-inline:auto;aspect-ratio:1/1.1}
+.portrait__bg{position:absolute;inset:8% 4% 0 4%;border-radius:48% 52% 45% 55% / 55% 45% 55% 45%;background:linear-gradient(160deg,var(--blush),var(--pink));}
+.portrait__img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:bottom;z-index:2;filter:drop-shadow(0 30px 40px rgba(255,63,152,.35))}
+.portrait__placeholder{position:absolute;inset:8% 4% 0 4%;border-radius:48% 52% 45% 55% / 55% 45% 55% 45%;display:grid;place-items:center;color:var(--white);font-weight:800;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;direction:ltr;z-index:1}
+.portrait .sticker{position:absolute;z-index:3}
+.portrait .sticker--a{top:4%;left:-2%;--rot:-8deg}
+.portrait .sticker--b{bottom:6%;right:-4%;--rot:6deg}
+.about__name{display:flex;align-items:center;gap:.8rem;margin-top:1.3rem;font-weight:800}
+.about__name span{color:var(--muted);font-weight:500}
+.about__care{margin-top:1.4rem;padding:1.2rem 1.4rem;border-inline-start:4px solid var(--hot);background:var(--white);border-radius:0 var(--radius-md) var(--radius-md) 0;box-shadow:var(--shadow-soft)}
+[dir="rtl"] .about__care{border-radius:var(--radius-md) 0 0 var(--radius-md)}
+.about__care strong{color:var(--hot)}
+
+/* ------------------------------------------------------------------
+   PRODUCT
+------------------------------------------------------------------ */
+.product{
+  position:relative;border-radius:var(--radius-xl);background:var(--white);
+  box-shadow:0 50px 100px -40px rgba(255,63,152,.5), var(--shadow-soft);
+  border:2px solid var(--ink);overflow:hidden;
+  display:grid;gap:2rem;padding:clamp(1.6rem,4vw,3rem);
+}
+@media (min-width:900px){.product{grid-template-columns:1.1fr .9fr;align-items:center}}
+.product::before{content:"";position:absolute;inset:0 0 auto 0;height:10px;background:linear-gradient(90deg,var(--hot),var(--pink),var(--blush))}
+.product__list{list-style:none;padding:0;margin:1.3rem 0 0;display:grid;gap:.55rem;grid-template-columns:repeat(2,1fr)}
+@media (max-width:480px){.product__list{grid-template-columns:1fr}}
+.product__list li{display:flex;gap:.6rem;align-items:center;font-weight:600;font-size:.98rem}
+.product__list li svg{width:18px;height:18px;flex:none;stroke:var(--hot);fill:none;stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round}
+.product__buy{
+  background:var(--bg);border-radius:var(--radius-lg);padding:1.8rem;
+  display:grid;gap:1rem;justify-items:center;text-align:center;border:1px solid var(--blush-line);
+}
+.product__buy .price{font-size:clamp(3.6rem,8vw,5rem)}
+.product__mini{width:150px;aspect-ratio:1/1.3;border-radius:14px;overflow:hidden;position:relative;transform:rotate(-4deg);box-shadow:0 24px 40px -18px rgba(26,26,26,.4);margin-bottom:.5rem}
+.product__mini img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2}
+.product__mini .mockup__fallback{padding:.8rem}
+.product__mini .mockup__fallback .display{font-size:1.6rem}
+.product__mini .mockup__fallback .meta{font-size:.55rem}
+.product__mini .mockup__fallback .en{font-size:.45rem}
+.product__tags{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.5rem}
+
+/* ------------------------------------------------------------------
+   FAQ
+------------------------------------------------------------------ */
+.faq{max-width:780px;margin-inline:auto;display:grid;gap:.8rem}
+.faq__item{background:var(--white);border-radius:var(--radius-md);border:1px solid var(--blush-line);box-shadow:var(--shadow-soft);overflow:hidden;transition:border-color .3s}
+.faq__item.open{border-color:var(--hot)}
+.faq__q{
+  width:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  padding:1.15rem 1.35rem;background:none;border:0;text-align:right;cursor:pointer;
+  font-weight:800;font-size:1.06rem;line-height:1.4;
+}
+.faq__q i{
+  width:34px;height:34px;flex:none;border-radius:50%;background:var(--blush);display:grid;place-items:center;
+  transition:transform .35s cubic-bezier(.2,.8,.2,1), background .3s;
+}
+.faq__q svg{width:16px;height:16px;stroke:var(--ink);fill:none;stroke-width:2.6;stroke-linecap:round}
+.faq__item.open .faq__q i{transform:rotate(45deg);background:var(--hot)}
+.faq__item.open .faq__q svg{stroke:var(--white)}
+.faq__a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s cubic-bezier(.2,.8,.2,1)}
+.faq__item.open .faq__a{grid-template-rows:1fr}
+.faq__a > div{overflow:hidden}
+.faq__a p{padding:0 1.35rem 1.3rem;color:var(--muted);line-height:1.7}
+.faq__a p + p{margin-top:.6rem;padding-top:0}
+.faq__a p:not(:last-child){padding-bottom:0}
+
+/* ------------------------------------------------------------------
+   FINAL CTA
+------------------------------------------------------------------ */
+.final{position:relative;overflow:hidden;background:var(--ink);color:var(--white)}
+.final__bg{position:absolute;inset:0;pointer-events:none;background:radial-gradient(70% 60% at 50% 100%, rgba(255,63,152,.45), transparent 65%)}
+.final .h2{color:var(--white);max-width:20ch}
+.final__lines{list-style:none;padding:0;margin:1.6rem 0 0;display:grid;gap:.3rem;font-size:clamp(1.15rem,2.4vw,1.5rem);font-weight:500;color:rgba(255,255,255,.85)}
+.final__lines li:first-child{color:var(--pink);font-weight:700}
+.final__buy{margin-top:2.2rem;display:flex;flex-wrap:wrap;align-items:center;gap:1.2rem 2rem}
+.final__buy .price{color:var(--white)}
+.final__buy .price small{color:rgba(255,255,255,.6)}
+.final__product{margin-top:2rem;font-weight:700;color:var(--pink)}
+
+.steps{list-style:none;padding:0;margin:0;display:grid;gap:.8rem;counter-reset:step}
+@media (min-width:900px){.steps{grid-template-columns:repeat(5,1fr);gap:.7rem}}
+.steps li{
+  counter-increment:step;position:relative;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-md);
+  padding:1.1rem 1.1rem 1.1rem;display:grid;gap:.4rem;font-size:.95rem;line-height:1.5;color:rgba(255,255,255,.85)
+}
+.steps li::before{
+  content:counter(step);font-family:var(--font-display);font-size:2rem;line-height:1;color:var(--hot);font-weight:700;
+}
+.steps__title{color:var(--pink);font-weight:800;font-size:.8rem;letter-spacing:.12em;margin:clamp(2.6rem,6vw,4rem) 0 .9rem;display:flex;align-items:center;gap:.8rem}
+.steps__title::after{content:"";flex:1;height:1px;background:rgba(255,255,255,.14)}
+
+/* ------------------------------------------------------------------
+   FOOTER / STICKY
+------------------------------------------------------------------ */
+.footer{padding-block:2rem calc(2rem + 88px);background:var(--ink);color:rgba(255,255,255,.55);font-size:.85rem}
+.footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.8rem;align-items:center;border-top:1px solid rgba(255,255,255,.1);padding-top:1.4rem}
+.footer .en{direction:ltr;letter-spacing:.16em;text-transform:uppercase;font-weight:700;font-size:.7rem}
+@media (min-width:900px){.footer{padding-block:2rem}}
+
+.sticky{
+  position:fixed;inset-inline:0;bottom:0;z-index:60;
+  padding:.7rem var(--gutter) calc(.7rem + env(safe-area-inset-bottom,0px));
+  background:rgba(255,247,251,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-top:1px solid var(--blush);
+  display:flex;align-items:center;justify-content:space-between;gap:.9rem;
+  transform:translateY(110%);transition:transform .4s cubic-bezier(.2,.8,.2,1);
+}
+.sticky.show{transform:translateY(0)}
+.sticky__price{display:grid;line-height:1.1}
+.sticky__price b{font-family:var(--font-display);font-size:1.9rem;font-weight:700}
+.sticky__price span{font-size:.7rem;color:var(--muted);font-weight:600}
+.sticky .btn{padding:.9rem 1.5rem;font-size:1.05rem;flex:1;max-width:280px}
+@media (min-width:900px){.sticky{display:none}}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none}
+  .marquee__track{width:auto;flex-wrap:wrap;justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     PLACEHOLDERS TO REPLACE BEFORE LAUNCH
+     1. PURCHASE_URL  -> in the <script> at the bottom of the page
+     2. Guide cover   -> <img data-placeholder="guide-cover"> (2 places)
+     3. Shir portrait -> <img data-placeholder="shir-portrait">
+     ============================================================ -->
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7.1L12 17.3 5.7 21l1.7-7.1L2 9.2l7.1-.6z"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.5-9.3C1 7.9 3.6 4.5 7 4.5c2 0 3.5 1 5 2.7 1.5-1.7 3-2.7 5-2.7 3.4 0 6 3.4 4.5 7.2C19.5 16.4 12 21 12 21z"/></symbol>
+    <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 2c.6 5.6 4.4 9.4 10 10-5.6.6-9.4 4.4-10 10-.6-5.6-4.4-9.4-10-10 5.6-.6 9.4-4.4 10-10z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+    <symbol id="i-reel" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="4"/><path d="M3 9h18M8 4l3 5M13 4l3 5M10.5 12.5l4 2.3-4 2.3z"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20h16M7 17v-6M12 17V6M17 17v-9"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 5a3.5 3.5 0 0 1 0 7M21.5 20a6.5 6.5 0 0 0-5-6.3"/></symbol>
+    <symbol id="i-coin" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="3"/><path d="M3 10h18M16 15h2"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></symbol>
+    <symbol id="i-flask" viewBox="0 0 24 24"><path d="M9 3h6M10 3v6l-6 11h16l-6-11V3M7.5 15h9"/></symbol>
+    <symbol id="i-ai" viewBox="0 0 24 24"><path d="M12 3c.5 4.7 3.8 8 8.5 8.5-4.7.5-8 3.8-8.5 8.5-.5-4.7-3.8-8-8.5-8.5C8.2 11 11.5 7.7 12 3zM19 2v3M17.5 3.5h3M5 17v3M3.5 18.5h3"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24"><path d="M10 6h10M10 12h10M10 18h10M4 6l1.2 1.2L7.5 4.8M4 12l1.2 1.2 2.3-2.4M4 18l1.2 1.2 2.3-2.4"/></symbol>
+  </defs>
+</svg>
+
+<!-- ============================ HERO ============================ -->
+<header class="hero">
+  <div class="hero__bg" aria-hidden="true"><i></i><i></i><i></i></div>
+  <span class="deco float" aria-hidden="true" style="top:8%;right:6%;width:26px;height:26px;--rot:12deg"><svg><use href="#i-star"/></svg></span>
+  <span class="deco float--slow float deco--blush" aria-hidden="true" style="top:52%;right:2%;width:18px;height:18px"><svg><use href="#i-heart"/></svg></span>
+  <span class="deco float--fast float" aria-hidden="true" style="bottom:10%;left:8%;width:20px;height:20px;--rot:-15deg"><svg><use href="#i-sparkle"/></svg></span>
+
+  <div class="wrap hero__inner">
+    <div>
+      <div class="hero__badges">
+        <span class="sticker sticker--en sticker--ink" style="--rot:-3deg"><svg><use href="#i-sparkle"/></svg>2026 Edition</span>
+        <span class="sticker sticker--hot" style="--rot:2deg">מעודכן לספטמבר 2026</span>
+      </div>
+
+      <h1 class="display h1">המדריך לבוסט באינסטגרם</h1>
+
+      <p class="lead">לפני שאת שמה עוד כסף על בוסט, תדעי אם הריל הזה בכלל שווה אותו.</p>
+
+      <div class="copy">
+        <p>לעשות בוסט זה קל.<br />לדעת איזה ריל לקדם, לאיזה קהל, בכמה כסף ואיך להבין אם הוא באמת עובד — זה כבר משהו אחר.</p>
+      </div>
+
+      <div class="hero__cred">
+        <svg aria-hidden="true"><use href="#i-heart"/></svg>
+        <p>השיטה שמאחורי המדריך הזה היא אותה דרך עבודה שעזרה לי גם להגיע ל־<strong>30K עוקבים</strong> באינסטגרם: לא לקדם כל דבר, אלא להבין איזה תוכן שווה דחיפה, למי להראות אותו ואיך לקרוא את התוצאות.</p>
+      </div>
+
+      <div class="hero__buy">
+        <span class="price"><span>49</span><small>₪</small></span>
+        <a class="btn btn--lg" href="#purchase" data-purchase>אני רוצה את המדריך<svg aria-hidden="true"><use href="#i-arrow" style="stroke:currentColor;fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round"/></svg></a>
+        <span class="fine">גישה מיידית לאחר הרכישה · מהדורת ספטמבר 2026 · 54 עמודים · כולל AI</span>
+      </div>
+
+      <div class="hero__badges" style="margin-top:1.6rem">
+        <span class="sticker sticker--blush" style="--rot:-2deg">כולל AI</span>
+        <span class="sticker" style="--rot:3deg">54 עמודים</span>
+        <span class="sticker sticker--en" style="--rot:-3deg"><svg style="fill:var(--hot)"><use href="#i-heart"/></svg>30K followers</span>
+      </div>
+    </div>
+
+    <!-- guide cover mockup -->
+    <div class="mockup" role="img" aria-label="עטיפת המדריך לבוסט באינסטגרם, מהדורת ספטמבר 2026">
+      <div class="mockup__cover">
+        <div class="mockup__fallback" aria-hidden="true">
+          <div class="en">Boost Smarter · 2026 Edition</div>
+          <div class="display">המדריך לבוסט באינסטגרם</div>
+          <div class="meta"><span>מהדורת ספטמבר 2026</span><span>54 עמודים</span></div>
+        </div>
+        <!-- PLACEHOLDER: replace src with the final hi-res guide cover -->
+        <img data-placeholder="guide-cover" src="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/0b/bf/22/5c/0bbf225c1f3424e97030484a99068b89/images/d818f4a4cad0c23030b37ac30ff4718f.png?cc=8&amp;convert=webp&amp;maxWidth=250&amp;maxHeight=175" alt="" onerror="this.hidden=true" />
+        <span class="mockup__spine" aria-hidden="true"></span>
+        <span class="mockup__gloss" aria-hidden="true"></span>
+      </div>
+      <div class="mockup__peek" aria-hidden="true">
+        <div class="mockup__peek-fallback"><i></i><i></i><i></i><i></i><b>Reel Insights</b></div>
+        <!-- PLACEHOLDER: replace src with an inside-page preview -->
+        <img data-placeholder="guide-cover" src="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/0b/bf/22/5c/0bbf225c1f3424e97030484a99068b89/images/547868a2fd1f91dca1d3443fbfd1c751.png?cc=8&amp;convert=webp&amp;maxWidth=250&amp;maxHeight=175" alt="" onerror="this.hidden=true" style="position:absolute;inset:0" />
+      </div>
+      <span class="sticker sticker--en sticker--hot mockup__tag mockup__tag--1 float float--slow">Updated</span>
+      <span class="sticker sticker--en mockup__tag mockup__tag--2 float">Boost Smarter</span>
+      <span class="mockup__price float float--fast" aria-hidden="true"><span>49₪<small>only</small></span></span>
+    </div>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span>Updated <svg><use href="#i-star"/></svg></span><span>New <svg><use href="#i-heart"/></svg></span><span>Boost Smarter <svg><use href="#i-star"/></svg></span><span>2026 Edition <svg><use href="#i-sparkle"/></svg></span><span>30K Community <svg><use href="#i-star"/></svg></span>
+    <span>Updated <svg><use href="#i-star"/></svg></span><span>New <svg><use href="#i-heart"/></svg></span><span>Boost Smarter <svg><use href="#i-star"/></svg></span><span>2026 Edition <svg><use href="#i-sparkle"/></svg></span><span>30K Community <svg><use href="#i-star"/></svg></span>
+    <span>Updated <svg><use href="#i-star"/></svg></span><span>New <svg><use href="#i-heart"/></svg></span><span>Boost Smarter <svg><use href="#i-star"/></svg></span><span>2026 Edition <svg><use href="#i-sparkle"/></svg></span><span>30K Community <svg><use href="#i-star"/></svg></span>
+    <span>Updated <svg><use href="#i-star"/></svg></span><span>New <svg><use href="#i-heart"/></svg></span><span>Boost Smarter <svg><use href="#i-star"/></svg></span><span>2026 Edition <svg><use href="#i-sparkle"/></svg></span><span>30K Community <svg><use href="#i-star"/></svg></span>
+  </div>
+</div>
+
+<main>
+
+<!-- ============================ PROBLEM ============================ -->
+<section class="section section--white" id="problem" aria-labelledby="problem-title">
+  <div class="wrap">
+    <div class="problem__grid">
+      <div class="reveal">
+        <span class="eyebrow">The real decision</span>
+        <h2 class="display h2" id="problem-title" style="margin-top:.8rem">לעשות בוסט זה קל. לעשות בוסט נכון זה כבר משהו אחר</h2>
+        <div class="copy stack" style="margin-top:1.4rem">
+          <p>אינסטגרם ממש שמה לך כפתור ואומרת לך ללחוץ.</p>
+          <p>אבל רוב הכסף לא מתבזבז בלחיצה עצמה.<br />הוא מתבזבז בהחלטות שמגיעות לפניה ואחריה.</p>
+        </div>
+        <div class="qs" aria-label="השאלות שקובעות אם הבוסט יעבוד">
+          <span>איזה ריל לבחור?</span>
+          <span>איזו מטרה להגדיר?</span>
+          <span>לתת לאינסטגרם לבחור קהל או לבנות אחד בעצמך?</span>
+          <span>כמה כסף לשים?</span>
+          <span>כמה זמן לתת לבוסט לעבוד?</span>
+          <span>ועל איזה נתון בכלל להסתכל?</span>
+        </div>
+        <div class="copy stack problem__punch">
+          <p>בדיוק בשביל זה בניתי את המדריך.</p>
+          <p>לא כדי ללמד אותך איפה נמצא כפתור ה־Boost.<br />כדי שתדעי <strong>איך לחשוב לפני שאת לוחצת עליו.</strong></p>
+        </div>
+      </div>
+
+      <div class="reveal" data-delay="1">
+        <p class="lead" style="max-width:none">פחות ניחושים. יותר החלטות.</p>
+        <div class="contrast">
+          <div class="contrast__card contrast__card--no">
+            <div class="contrast__title"><i><svg aria-hidden="true"><use href="#i-x"/></svg></i>לא</div>
+            <ul>
+              <li><svg aria-hidden="true"><use href="#i-x"/></svg>לבחור ריל כי הוא מרגיש לך טוב</li>
+              <li><svg aria-hidden="true"><use href="#i-x"/></svg>להסתכל רק על לייקים</li>
+              <li><svg aria-hidden="true"><use href="#i-x"/></svg>לשים כסף ולחכות</li>
+              <li><svg aria-hidden="true"><use href="#i-x"/></svg>לעצור אחרי כמה שעות כי לא קרה כלום</li>
+              <li><svg aria-hidden="true"><use href="#i-x"/></svg>להמשיך קמפיין רק כי יש הרבה צפיות</li>
+            </ul>
+          </div>
+          <div class="contrast__card contrast__card--yes">
+            <div class="contrast__title"><i><svg aria-hidden="true"><use href="#i-check"/></svg></i>כן</div>
+            <ul>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>לבדוק את הנתונים של הריל</li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>להבין Retention ו־Skip Rate</li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>לבחור קהל מתוך היגיון</li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>להגדיר מטרה מראש</li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>לדעת מה את מצפה לראות</li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>ולהבין מתי להמשיך, לשנות או לעצור</li>
+            </ul>
+          </div>
+        </div>
+        <div class="note">
+          <svg aria-hidden="true"><use href="#i-sparkle"/></svg>
+          <p>במדריך עצמו את לומדת לקרוא את נתוני הריל, כולל שמירות, שיתופים, זמן צפייה ו־Retention, ולא להסתמך רק על צפיות או לייקים.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ INSIDE ============================ -->
+<section class="section section--blush" id="inside" aria-labelledby="inside-title">
+  <div class="wrap">
+    <div class="section__head reveal">
+      <span class="eyebrow">Inside the guide</span>
+      <h2 class="display h2" id="inside-title">מה מחכה לך בפנים</h2>
+      <p class="copy copy--muted">54 עמודים, 13 פרקים, צילומי מסך והסברים. כל פרק עונה על שאלה אחת שאת שואלת את עצמך לפני, במהלך או אחרי בוסט.</p>
+    </div>
+
+    <div class="grid grid--3">
+      <article class="card feature reveal">
+        <div class="icon-badge"><svg aria-hidden="true"><use href="#i-reel"/></svg></div>
+        <h3 class="h3">איך לבחור איזה ריל שווה בוסט</h3>
+        <p>לא כל ריל שמצליח אורגנית הוא בהכרח הריל שכדאי לשים עליו כסף. תלמדי לזהות סימנים שמראים שיש לריל פוטנציאל אמיתי לקידום.</p>
+      </article>
+      <article class="card feature reveal" data-delay="1">
+        <div class="icon-badge"><svg aria-hidden="true"><use href="#i-chart"/></svg></div>
+        <h3 class="h3">איך לקרוא את הנתונים: Retention ו־Skip Rate</h3>
+        <p>Retention, Skip Rate, שמירות, שיתופים, זמן צפייה וכניסות לפרופיל — ומה כל אחד מהם אומר לך על הריל.</p>
+      </article>
+      <article class="card feature reveal" data-delay="2">
+        <div class="icon-badge"><svg aria-hidden="true"><use href="#i-users"/></svg></div>
+        <h3 class="h3">בחירת קהל ו־Advantage+</h3>
+        <p>מתי להשאיר Suggested Audience, מתי ליצור קהל בעצמך ואיך לעבוד עם Advantage+ בצורה חכמה.</p>
+      </article>
+      <article class="card feature reveal">
+        <div class="icon-badge"><svg aria-hidden="true"><use href="#i-coin"/></svg></div>
+        <h3 class="h3">תקציב ותזמון</h3>
+        <p>כמה להתחיל, כמה זמן לתת לבוסט לרוץ ומתי לבדוק אם הוא באמת עושה את העבודה.</p>
+      </article>
+      <article class="card feature reveal" data-delay="1">
+        <div class="icon-badge"><svg aria-hidden="true"><use href="#i-target"/></svg></div>
+        <h3 class="h3">KPI ומדידת תוצאות</h3>
+        <p>אילו KPI חשובים, מה נחשב תוצאה טובה ואיפה כדאי לבדוק את עצמך מול בוסטים קודמים.</p>
+      </article>
+      <article class="card feature reveal" data-delay="2">
+        <div class="icon-badge"><svg aria-hidden="true"><use href="#i-search"/></svg></div>
+        <h3 class="h3">פתרון בעיות: למה הבוסט לא עובד</h3>
+        <p>יש חשיפה ואין כניסות? יש כניסות ואין עוקבים? העלות גבוהה? המדריך עוזר לך להבין איפה הבעיה לפני שאת משנה הכול.</p>
+      </article>
+      <article class="card feature reveal">
+        <div class="icon-badge"><svg aria-hidden="true"><use href="#i-flask"/></svg></div>
+        <span class="sticker sticker--en sticker--hot feature__tag" style="--rot:4deg">New</span>
+        <h3 class="h3">Trial Reels: לבדוק פתיחים לפני</h3>
+        <p>במקום לנחש איזה פתיח יעבוד, לבדוק אותו קודם.</p>
+      </article>
+      <article class="card feature feature--hot reveal" data-delay="1">
+        <div class="icon-badge"><svg aria-hidden="true"><use href="#i-ai"/></svg></div>
+        <span class="sticker sticker--en feature__tag" style="--rot:-4deg">AI</span>
+        <h3 class="h3">3 פרומפטים ל־AI לפני הבוסט</h3>
+        <p>3 פרומפטים מוכנים שיעזרו לך לבחור ריל, לייצר פתיחים ולכתוב קפשן.</p>
+      </article>
+      <article class="card feature reveal" data-delay="2">
+        <div class="icon-badge"><svg aria-hidden="true"><use href="#i-list"/></svg></div>
+        <h3 class="h3">Checklist לפני הבוסט הבא</h3>
+        <p>כדי שלא תצטרכי לזכור הכול לבד.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 2026 ============================ -->
+<section class="section section--ink new" id="new" aria-labelledby="new-title">
+  <div class="new__bg" aria-hidden="true"></div>
+  <div class="new__year" aria-hidden="true">2026</div>
+  <div class="wrap">
+    <div class="new__head reveal">
+      <div><span class="sticker sticker--en sticker--hot" style="--rot:-3deg"><svg><use href="#i-sparkle"/></svg>2026 Edition</span></div>
+      <h2 class="display h2" id="new-title">מה חדש במהדורת 2026</h2>
+      <p class="lead">אינסטגרם השתנתה. אז גם המדריך השתנה.</p>
+      <p class="copy">הגרסה החדשה עודכנה לפי הדרך שבה אינסטגרם ומטא עובדות היום.</p>
+    </div>
+
+    <div class="new__label">נוספו ועודכנו</div>
+    <div class="new__grid">
+      <article class="ncard reveal">
+        <span class="sticker sticker--en sticker--hot" style="--rot:5deg">New</span>
+        <span class="ncard__n" aria-hidden="true">%</span>
+        <h3 class="h3">Retention ו־Skip Rate</h3>
+        <p>כדי להבין מה באמת קורה בתוך הריל ולא רק כמה אנשים צפו בו.</p>
+      </article>
+      <article class="ncard reveal" data-delay="1">
+        <span class="sticker sticker--en sticker--hot" style="--rot:-4deg">New</span>
+        <span class="ncard__n" aria-hidden="true">A/B</span>
+        <h3 class="h3">Trial Reels</h3>
+        <p>כדי לבדוק פתיחים לפני שאת שמה עליהם כסף.</p>
+      </article>
+      <article class="ncard reveal" data-delay="2">
+        <span class="sticker sticker--en" style="--rot:4deg">Updated</span>
+        <span class="ncard__n" aria-hidden="true">+</span>
+        <h3 class="h3">קהל ו־Advantage+</h3>
+        <p>איך לחשוב על טירגוט היום, כשהאלגוריתם עובד בצורה רחבה וגמישה יותר.</p>
+      </article>
+      <article class="ncard reveal">
+        <span class="sticker sticker--en sticker--hot" style="--rot:-5deg">New</span>
+        <span class="ncard__n" aria-hidden="true">AI</span>
+        <h3 class="h3">AI לפני הבוסט</h3>
+        <p>3 פרומפטים שאני משתמשת בהם כדי לקבל החלטות טובות יותר מהנתונים שכבר קיימים.</p>
+      </article>
+      <article class="ncard reveal" data-delay="1">
+        <span class="sticker sticker--en" style="--rot:3deg">Updated</span>
+        <span class="ncard__n" aria-hidden="true">1→2→3</span>
+        <h3 class="h3">תהליך הבוסט המעודכן</h3>
+        <p>צעד אחר צעד, לפי מה שאת באמת רואה היום באינסטגרם.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 30K PROOF ============================ -->
+<section class="section proof" id="proof" aria-labelledby="proof-title">
+  <span class="deco float" aria-hidden="true" style="top:6%;left:5%;width:34px;height:34px;color:#fff;opacity:.7"><svg><use href="#i-star"/></svg></span>
+  <span class="deco float--slow float" aria-hidden="true" style="bottom:8%;right:4%;width:26px;height:26px;color:#fff;opacity:.6"><svg><use href="#i-heart"/></svg></span>
+  <div class="wrap">
+    <div class="proof__grid">
+      <div class="proof__side reveal">
+        <span class="sticker sticker--en">30K Community</span>
+        <div class="proof__k" aria-label="30K"><span>30</span>K</div>
+        <h2 class="display h2" id="proof-title">הדרך ל־30K לא הייתה רק תוכן</h2>
+        <p class="copy">הדרך ל־30K לא נבנתה רק מתוכן, אלא גם מהבנה של איזה ריל שווה לקדם, מתי לשים עליו כסף ואיך למדוד אם זה באמת עובד.</p>
+      </div>
+
+      <div class="proof__card reveal" data-delay="1">
+        <p class="copy" style="font-weight:600">הגעתי ל־30K עוקבים דרך שילוב של תוכן, עקביות ושימוש חכם בבוסט.</p>
+        <ul class="proof__lines">
+          <li>לא כל ריל קיבל כסף.</li>
+          <li>לא כל קהל עבד.</li>
+          <li>ולא כל בוסט המשיך לרוץ.</li>
+        </ul>
+        <div class="copy stack">
+          <p>החלק החשוב היה לדעת לזהות איזה תוכן שווה דחיפה, מתי נכון לקדם אותו, למי, ואיך להבין מתוך הנתונים אם להמשיך או לעצור.</p>
+          <p><strong>וזה בדיוק סוג החשיבה שאני מלמדת כאן.</strong></p>
+        </div>
+        <div class="proof__not" aria-label="מה המדריך לא מלמד ומה כן">
+          <span>לא איך לקנות עוקבים</span>
+          <span>לא איך להבטיח ויראליות</span>
+          <span class="yes">אלא איך להשתמש בבוסט ככלי צמיחה בצורה יותר חכמה</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ AI ============================ -->
+<section class="section section--white ai" id="ai" aria-labelledby="ai-title">
+  <span class="deco float" aria-hidden="true" style="top:12%;right:8%;width:22px;height:22px;--rot:15deg"><svg><use href="#i-sparkle"/></svg></span>
+  <span class="deco float--slow float deco--blush" aria-hidden="true" style="top:40%;left:6%;width:28px;height:28px"><svg><use href="#i-star"/></svg></span>
+  <div class="wrap">
+    <div class="ai__wrap reveal">
+      <span class="eyebrow">Smarter decisions</span>
+      <h2 class="display h2" id="ai-title">והוספתי גם את הדבר שאני עושה היום כמעט בכל בוסט</h2>
+      <div class="ai__big" aria-hidden="true">AI</div>
+      <div class="copy stack" style="text-align:center">
+        <p>לא כדי ש־AI יעשה לך את השיווק.</p>
+        <p><strong>כדי שהוא יעזור לך לקבל החלטה טובה יותר מהנתונים שכבר יש לך.</strong></p>
+        <p class="copy--muted">במדריך מחכים לך 3 פרומפטים מוכנים:</p>
+      </div>
+    </div>
+
+    <div class="grid grid--3 ai__cards">
+      <article class="card acard reveal">
+        <span class="acard__q" aria-hidden="true">01</span>
+        <h3 class="h3">איזה ריל כדאי לי לקדם?</h3>
+        <p>את מעלה נתונים של כמה רילסים ומקבלת ניתוח מסודר במקום לבחור לפי תחושת בטן.</p>
+      </article>
+      <article class="card acard reveal" data-delay="1">
+        <span class="acard__q" aria-hidden="true">02</span>
+        <h3 class="h3">איזה פתיח כדאי לי לבדוק?</h3>
+        <p>ה־AI עוזר לך לייצר כמה פתיחים שונים שאפשר לבדוק.</p>
+      </article>
+      <article class="card acard reveal" data-delay="2">
+        <span class="acard__q" aria-hidden="true">03</span>
+        <h3 class="h3">איך לכתוב קפשן לפני הבוסט?</h3>
+        <p>פרומפט שבונה לך טיוטה לפי התסריט והסגנון שלך.</p>
+      </article>
+    </div>
+    <p class="ai__foot copy copy--muted" style="margin-inline:auto">פרק ה־AI במדריך בנוי בדיוק סביב שלושת השימושים האלה.</p>
+  </div>
+</section>
+
+<!-- ============================ WHO ============================ -->
+<section class="section section--blush" id="who" aria-labelledby="who-title">
+  <div class="wrap">
+    <div class="who__grid">
+      <div class="reveal">
+        <span class="eyebrow">Is it for you</span>
+        <h2 class="display h2" id="who-title" style="margin-top:.8rem">המדריך הזה בשבילך אם</h2>
+        <p class="copy copy--muted" style="margin-top:1.2rem">לא צריך חשבון ענק, לא צריך Ads Manager ולא צריך תקציב גדול. צריך רילסים בפרופיל ורצון להחליט מתוך נתונים.</p>
+      </div>
+      <ul class="who__list">
+        <li class="reveal"><i><svg aria-hidden="true"><use href="#i-heart"/></svg></i>יש לך עסק ואת כבר מעלה רילסים.</li>
+        <li class="reveal" data-delay="1"><i><svg aria-hidden="true"><use href="#i-heart"/></svg></i>את רוצה להגיע ליותר מהאנשים הנכונים בלי ללמוד עכשיו מערכת פרסום שלמה.</li>
+        <li class="reveal" data-delay="2"><i><svg aria-hidden="true"><use href="#i-heart"/></svg></i>כבר עשית בוסט פעם ולא באמת ידעת אם התוצאה שקיבלת טובה.</li>
+        <li class="reveal"><i><svg aria-hidden="true"><use href="#i-heart"/></svg></i>יש לך תוכן טוב בפרופיל ואת מרגישה שהוא יכול להגיע להרבה יותר אנשים.</li>
+        <li class="reveal" data-delay="1"><i><svg aria-hidden="true"><use href="#i-heart"/></svg></i>את רוצה להפסיק לבחור ריל, קהל ותקציב לפי "נראה לי".</li>
+        <li class="reveal" data-delay="2"><i><svg aria-hidden="true"><use href="#i-heart"/></svg></i>ואת רוצה להבין מה קורה עם הכסף שלך אחרי שלחצת Boost.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ ABOUT ============================ -->
+<section class="section section--white" id="about" aria-labelledby="about-title">
+  <div class="wrap">
+    <div class="about__grid">
+      <div class="portrait reveal">
+        <div class="portrait__bg" aria-hidden="true"></div>
+        <div class="portrait__placeholder" aria-hidden="true">Shir · Portrait</div>
+        <!-- PLACEHOLDER: swap assets/shir.png for the final portrait -->
+        <img class="portrait__img" data-placeholder="shir-portrait" src="assets/shir.png" alt="שיר בסר ריחני" onerror="this.hidden=true" />
+        <span class="sticker sticker--en sticker--hot sticker--a float float--slow">30K Community</span>
+        <span class="sticker sticker--b float">אסטרטגית אינסטגרם ו־AI</span>
+      </div>
+      <div class="reveal" data-delay="1">
+        <span class="eyebrow">About</span>
+        <h2 class="display h2" id="about-title" style="margin-top:.8rem">היי, אני שיר</h2>
+        <div class="about__name">שיר בסר ריחני <span>· אסטרטגית אינסטגרם ו־AI</span></div>
+        <div class="copy stack" style="margin-top:1.1rem">
+          <p>בניתי קהילה של 30K עוקבים דרך תוכן, עקביות ושימוש אסטרטגי בבוסט.</p>
+          <p>המדריך הזה מבוסס על הדרך שבה אני עובדת בעצמי: בוסטים אמיתיים, נתונים אמיתיים, כסף אמיתי, עבודה עם לקוחות וגם לא מעט ניסויים שלא עבדו.</p>
+        </div>
+        <div class="about__care">
+          <p>וזה חשוב לי:</p>
+          <p>אני לא רוצה שתעשי בוסט כי אמרו לך שכדאי.<br />אני רוצה שתדעי <strong>למה את עושה אותו ומה את רוצה לראות ממנו.</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ PRODUCT ============================ -->
+<section class="section section--blush" id="product" aria-labelledby="product-title">
+  <div class="wrap">
+    <div class="section__head center reveal">
+      <span class="eyebrow" style="margin-inline:auto">What you get</span>
+      <h2 class="display h2" id="product-title">מה את מקבלת</h2>
+    </div>
+
+    <div class="product reveal">
+      <div>
+        <div class="product__tags">
+          <span class="sticker sticker--en sticker--ink" style="--rot:-2deg">2026 Edition</span>
+          <span class="sticker sticker--hot" style="--rot:2deg">מעודכן לספטמבר 2026</span>
+        </div>
+        <h3 class="display" style="font-size:clamp(2.4rem,5vw,3.6rem);margin-top:1.1rem">המדריך המקיף לבוסט לרילס — מהדורת 2026</h3>
+        <ul class="product__list">
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>54 עמודים</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>13 פרקים</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>צילומי מסך והסברים</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>בחירת ריל וקהל</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>תקציב ותזמון</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>ניתוח KPI</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>פתרון בעיות</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Trial Reels</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>3 פרומפטים ל־AI</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Checklist לפני בוסט</li>
+        </ul>
+      </div>
+      <div class="product__buy">
+        <div class="product__mini" aria-hidden="true">
+          <div class="mockup__fallback">
+            <div class="en">2026 Edition</div>
+            <div class="display">המדריך לבוסט באינסטגרם</div>
+            <div class="meta"><span>ספטמבר 2026</span><span>54 עמ׳</span></div>
+          </div>
+          <!-- PLACEHOLDER: same cover image as the hero -->
+          <img data-placeholder="guide-cover" src="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/0b/bf/22/5c/0bbf225c1f3424e97030484a99068b89/images/d818f4a4cad0c23030b37ac30ff4718f.png?cc=8&amp;convert=webp&amp;maxWidth=250&amp;maxHeight=175" alt="" onerror="this.hidden=true" />
+        </div>
+        <span class="price"><span>49</span><small>₪</small></span>
+        <a class="btn btn--lg btn--full" href="#purchase" data-purchase>אני רוצה את המדריך</a>
+        <span class="fine">גישה מיידית לאחר הרכישה</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FAQ ============================ -->
+<section class="section section--white" id="faq" aria-labelledby="faq-title">
+  <div class="wrap">
+    <div class="section__head center reveal">
+      <span class="eyebrow" style="margin-inline:auto">FAQ</span>
+      <h2 class="display h2" id="faq-title">שאלות נפוצות</h2>
+    </div>
+
+    <div class="faq reveal">
+      <div class="faq__item">
+        <button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-1" id="faq-1-btn">האם זה מתאים גם לחשבון קטן?<i><svg aria-hidden="true"><use href="#i-plus"/></svg></i></button>
+        <div class="faq__a" id="faq-1" role="region" aria-labelledby="faq-1-btn"><div>
+          <p>כן. אם יש לך חשבון מקצועי וכבר התחלת להעלות רילסים, המדריך מתחיל מהבסיס ומתקדם משם.</p>
+        </div></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-2" id="faq-2-btn">האם אני צריכה לדעת לעבוד עם Ads Manager?<i><svg aria-hidden="true"><use href="#i-plus"/></svg></i></button>
+        <div class="faq__a" id="faq-2" role="region" aria-labelledby="faq-2-btn"><div>
+          <p>לא. המדריך עוסק בבוסט מתוך אינסטגרם ולא דורש ממך ללמוד את מערכת הפרסום המלאה של מטא.</p>
+        </div></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-3" id="faq-3-btn">כמה כסף צריך כדי להתחיל?<i><svg aria-hidden="true"><use href="#i-plus"/></svg></i></button>
+        <div class="faq__a" id="faq-3" role="region" aria-labelledby="faq-3-btn"><div>
+          <p>הרעיון במדריך הוא להתחיל בתקציב קטן, למדוד ורק אז להחליט אם להגדיל.</p>
+        </div></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-4" id="faq-4-btn">כבר עשיתי בוסטים בעבר. עדיין יש לי מה ללמוד?<i><svg aria-hidden="true"><use href="#i-plus"/></svg></i></button>
+        <div class="faq__a" id="faq-4" role="region" aria-labelledby="faq-4-btn"><div>
+          <p>אם עד היום בחרת ריל לפי צפיות, לייקים או תחושת בטן, יש סיכוי טוב שכן. המדריך החדש כולל גם Retention, Skip Rate, Trial Reels, עדכון בנושא קהלים ופרק AI.</p>
+        </div></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-5" id="faq-5-btn">האם המדריך מבטיח שבוסט יביא לי לקוחות או עוקבים?<i><svg aria-hidden="true"><use href="#i-plus"/></svg></i></button>
+        <div class="faq__a" id="faq-5" role="region" aria-labelledby="faq-5-btn"><div>
+          <p>לא. אף מדריך לא יכול להבטיח לקוחות או גידול בעוקבים.</p>
+          <p>התוצאה תלויה בתוכן, בהצעה, בקהל, בפרופיל ובעסק עצמו.</p>
+          <p>המדריך נותן לך תהליך מסודר לבחור, למדוד ולשפר — במקום פשוט לשים כסף ולקוות.</p>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FINAL CTA ============================ -->
+<section class="section final" id="purchase" aria-labelledby="final-title">
+  <div class="final__bg" aria-hidden="true"></div>
+  <span class="deco float" aria-hidden="true" style="top:10%;right:6%;width:30px;height:30px;--rot:10deg"><svg><use href="#i-star"/></svg></span>
+  <span class="deco float--slow float deco--blush" aria-hidden="true" style="top:30%;left:5%;width:22px;height:22px"><svg><use href="#i-heart"/></svg></span>
+  <div class="wrap" style="position:relative">
+    <div class="reveal">
+      <span class="sticker sticker--en sticker--hot" style="--rot:-3deg">Boost Smarter</span>
+      <h2 class="display h2" id="final-title" style="margin-top:1.2rem">הבוסט הבא שלך לא צריך להתחיל ב־"נראה לי שזה ריל טוב"</h2>
+      <ul class="final__lines">
+        <li>לפני שאת שמה כסף על הריל הבא שלך,</li>
+        <li>תדעי למה דווקא הוא.</li>
+        <li>למי את מציגה אותו.</li>
+        <li>מה את מצפה לראות.</li>
+        <li>ומה לעשות אם זה לא קורה.</li>
+      </ul>
+      <p class="final__product">המדריך לבוסט באינסטגרם — מהדורת ספטמבר 2026</p>
+      <div class="final__buy">
+        <span class="price"><span>49</span><small>₪</small></span>
+        <a class="btn btn--lg" href="#purchase" data-purchase>אני רוצה את המדריך</a>
+        <span class="fine" style="color:rgba(255,255,255,.6)">גישה מיידית לאחר הרכישה</span>
+      </div>
+    </div>
+
+    <div class="reveal" data-delay="1">
+      <p class="steps__title">After purchase · מה קורה אחרי הרכישה?</p>
+      <ol class="steps" aria-label="מה קורה אחרי הרכישה">
+        <li>את רוכשת.</li>
+        <li>מקבלת מיד את המדריך.</li>
+        <li>בוחרת ריל אחד מהפרופיל שלך.</li>
+        <li>עוברת על הנתונים ועל הצ׳קליסט.</li>
+        <li>ורק אז מחליטה אם באמת שווה לשים עליו כסף.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <span>© <span id="year">2026</span> שיר בסר ריחני · המדריך לבוסט באינסטגרם</span>
+    <span class="en">Boost Smarter · 2026 Edition</span>
+  </div>
+</footer>
+
+<!-- sticky mobile CTA -->
+<div class="sticky" id="sticky" aria-hidden="true">
+  <div class="sticky__price"><b>49 ₪</b><span>גישה מיידית</span></div>
+  <a class="btn" href="#purchase" data-purchase tabindex="-1">אני רוצה את המדריך</a>
+</div>
+
+<script>
+(function(){
+  /* ---------------------------------------------------------------
+     PLACEHOLDER: set the real checkout link here.
+     Every "אני רוצה את המדריך" button reads from this constant.
+     Leave it empty to keep the buttons scrolling to the final section.
+  --------------------------------------------------------------- */
+  var PURCHASE_URL = "";
+
+  var ctas = document.querySelectorAll("[data-purchase]");
+  if (PURCHASE_URL) {
+    ctas.forEach(function(a){ a.href = PURCHASE_URL; a.target = "_blank"; a.rel = "noopener"; });
+  }
+
+  /* footer year */
+  var y = document.getElementById("year");
+  if (y) y.textContent = new Date().getFullYear();
+
+  /* sticky CTA (mobile): appears after the hero, hides on the final section */
+  var sticky = document.getElementById("sticky");
+  var hero = document.querySelector(".hero");
+  var final = document.getElementById("purchase");
+  function updateSticky(){
+    if (!sticky || !hero) return;
+    var past = window.scrollY > hero.offsetHeight * 0.75;
+    var atFinal = final && final.getBoundingClientRect().top < window.innerHeight * 0.6;
+    var show = past && !atFinal;
+    sticky.classList.toggle("show", show);
+    sticky.setAttribute("aria-hidden", show ? "false" : "true");
+    sticky.querySelector("a").tabIndex = show ? 0 : -1;
+  }
+  window.addEventListener("scroll", updateSticky, { passive:true });
+  window.addEventListener("resize", updateSticky);
+  updateSticky();
+
+  /* reveal on scroll */
+  var items = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+      });
+    }, { rootMargin:"0px 0px -8% 0px", threshold:0.08 });
+    items.forEach(function(el){ io.observe(el); });
+  } else {
+    items.forEach(function(el){ el.classList.add("in"); });
+  }
+
+  /* FAQ accordion */
+  document.querySelectorAll(".faq__q").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var item = btn.closest(".faq__item");
+      var open = item.classList.toggle("open");
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+  });
+})();
+</script>
+</body>
+</html>
