@@ -5,9 +5,14 @@ Run from the repo root:  python3 boost-guide/build-embed.py
 Inlines the portrait (assets/shir-embed.webp) and the headline font as data URIs
 and prefixes every CSS class with `bg-` so RavPages' own styles cannot collide.
 """
-import base64, os
+import base64, os, sys
+# --remote: reference the font files and portrait by public GitHub URL instead of inlining them
+REMOTE='--remote' in sys.argv
+RAW='https://raw.githubusercontent.com/shirbesser/-/claude/bold-maxwell-onmbyp/boost-guide/'
 R=os.path.join(os.path.dirname(os.path.abspath(__file__)),'')
-def data_uri(path,mime): return 'data:'+mime+';base64,'+base64.b64encode(open(R+path,'rb').read()).decode()
+def data_uri(path,mime):
+    if REMOTE: return RAW+path
+    return 'data:'+mime+';base64,'+base64.b64encode(open(R+path,'rb').read()).decode()
 s=open(R+'index.html',encoding='utf-8').read()
 head=s[s.index('<head>')+6:s.index('</head>')]
 body=s[s.index('<body>')+6:s.index('</body>')]
@@ -42,10 +47,10 @@ body=body.replace('<!-- PLACEHOLDER: swap assets/shir.png for the final portrait
 body=body.replace('src="assets/shir.png"','src="'+data_uri('assets/shir-embed.webp','image/webp')+'"')
 body=re.sub(r'<!-- =+\n     PLACEHOLDERS.*?=+ -->\n','',body,flags=re.S)
 assert 'assets/shir.png' not in body
-style=style.replace('url("assets/FbJambo-Regular.otf")','url("data:font/otf;base64,'+data_uri('assets/FbJambo-Regular.otf','font/otf')[len('data:font/otf;base64,'):]+'")')
-style=style.replace('url("assets/FbSpoiler-Regular.otf")','url("data:font/otf;base64,'+data_uri('assets/FbSpoiler-Regular.otf','font/otf')[len('data:font/otf;base64,'):]+'")')
-style=style.replace('url("assets/FbSpoiler-Bold.otf")','url("data:font/otf;base64,'+data_uri('assets/FbSpoiler-Bold.otf','font/otf')[len('data:font/otf;base64,'):]+'")')
-assert 'assets/' not in style
+style=style.replace('url("assets/FbJambo-Regular.otf")','url("'+data_uri('assets/FbJambo-Regular.otf','font/otf')+'")')
+style=style.replace('url("assets/FbSpoiler-Regular.otf")','url("'+data_uri('assets/FbSpoiler-Regular.otf','font/otf')+'")')
+style=style.replace('url("assets/FbSpoiler-Bold.otf")','url("'+data_uri('assets/FbSpoiler-Bold.otf','font/otf')+'")')
+assert 'url("assets/' not in style
 out=f'''<!-- ===== המדריך לבוסט באינסטגרם | קוד להדבקה בבלוק HTML ברב מסר ===== -->
 <!-- לינק לתשלום: מופיע על כל הכפתורים וגם במשתנה PURCHASE_URL בסוף הקוד -->
 {fontlink}
@@ -57,5 +62,5 @@ out=f'''<!-- ===== המדריך לבוסט באינסטגרם | קוד להדב�
 </div>
 <!-- ===== סוף הקוד ===== -->
 '''
-open(R+'ravpages-embed.html','w',encoding='utf-8').write(out)
+open(R+('ravpages-embed-lite.html' if REMOTE else 'ravpages-embed.html'),'w',encoding='utf-8').write(out)
 print('embed',len(out),'chars')
