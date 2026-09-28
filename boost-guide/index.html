@@ -13,6 +13,15 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&family=Karantina:wght@400;700&display=swap" rel="stylesheet" />
 <style>
+/* Headline font: FB Jambo for Hebrew glyphs; Karantina covers Latin and digits. */
+@font-face{
+  font-family:"FB Jambo";
+  src:url("assets/FbJambo-Regular.otf") format("opentype");
+  font-weight:400 800;
+  font-display:swap;
+  unicode-range:U+0590-05FF, U+FB1D-FB4F;
+}
+
 /* ------------------------------------------------------------------
    TOKENS
 ------------------------------------------------------------------ */
@@ -27,7 +36,7 @@
   --line:rgba(26,26,26,.09);
   --blush-line:rgba(255,63,152,.22);
 
-  --font-display:"Karantina","Heebo","Arial Hebrew","Arial",sans-serif;
+  --font-display:"FB Jambo","Karantina","Heebo","Arial Hebrew","Arial",sans-serif;
   --font-body:"Heebo","Arial Hebrew","Arial",sans-serif;
 
   --radius-xl:32px;
@@ -65,7 +74,7 @@ body{
 }
 img,svg{max-width:100%;display:block}
 [hidden]{display:none!important}
-h1,h2,h3,h4{margin:0;text-wrap:balance}
+h1,h2,h3,h4{margin:0;text-wrap:balance;color:inherit}
 p{margin:0}
 a{color:inherit}
 button{font:inherit;color:inherit}
@@ -82,11 +91,11 @@ button{font:inherit;color:inherit}
 .display{
   font-family:var(--font-display);
   font-weight:700;
-  line-height:.92;
+  line-height:1.02;
   letter-spacing:.005em;
 }
-.h1{font-size:clamp(4.2rem, 13vw, 9.5rem)}
-.h2{font-size:clamp(2.9rem, 7.2vw, 5.4rem);max-width:16ch}
+.h1{font-size:clamp(3.2rem, 9.5vw, 6.6rem);overflow-wrap:anywhere}
+.h2{font-size:clamp(2.2rem, 5.6vw, 4rem);max-width:18ch}
 .h3{font-family:var(--font-body);font-weight:800;font-size:1.22rem;line-height:1.35}
 .lead{font-size:clamp(1.28rem, 2.4vw, 1.6rem);font-weight:700;line-height:1.45;max-width:24ch}
 .copy{max-width:56ch;color:var(--ink)}
@@ -217,7 +226,8 @@ button{font:inherit;color:inherit}
 .hero__bg i:nth-child(2){width:36vw;height:36vw;max-width:460px;max-height:460px;background:rgba(255,119,183,.35);bottom:-12%;right:-6%}
 .hero__bg i:nth-child(3){width:26vw;height:26vw;max-width:300px;max-height:300px;background:var(--white);top:30%;right:35%}
 .hero__inner{position:relative;z-index:1;display:grid;gap:3rem;align-items:center}
-@media (min-width:920px){.hero__inner{grid-template-columns:1.05fr .95fr;gap:3.5rem}}
+@media (min-width:920px){.hero__inner{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:3.5rem}}
+.hero__inner > *{min-width:0}
 
 .hero__badges{display:flex;flex-wrap:wrap;gap:.65rem .6rem;margin-top:.4rem}
 .hero .h1{margin-top:1.1rem}
@@ -254,7 +264,7 @@ button{font:inherit;color:inherit}
     var(--ink);
   color:var(--white);display:flex;flex-direction:column;justify-content:space-between;
 }
-.mockup__fallback .display{font-size:clamp(2.6rem,9vw,4rem);line-height:.9}
+.mockup__fallback .display{font-size:clamp(2rem,7vw,3rem);line-height:1}
 .mockup__fallback .en{font-size:.64rem;letter-spacing:.24em;text-transform:uppercase;direction:ltr;text-align:left;color:var(--blush);font-weight:800}
 .mockup__fallback .meta{display:flex;justify-content:space-between;align-items:flex-end;font-size:.82rem;font-weight:700;color:var(--blush)}
 .mockup__spine{position:absolute;inset:0 auto 0 0;width:8%;background:linear-gradient(90deg,rgba(255,255,255,.12),rgba(255,255,255,0));z-index:3}
@@ -306,7 +316,7 @@ button{font:inherit;color:inherit}
 .contrast__card{border-radius:var(--radius-xl);padding:1.8rem 1.7rem;position:relative;overflow:hidden}
 .contrast__card--no{background:var(--ink);color:var(--white)}
 .contrast__card--yes{background:var(--white);border:2px solid var(--hot);box-shadow:var(--shadow-pink)}
-.contrast__title{display:flex;align-items:center;gap:.7rem;font-family:var(--font-display);font-size:3rem;line-height:1;font-weight:700;margin-bottom:1.1rem}
+.contrast__title{display:flex;align-items:center;gap:.7rem;font-family:var(--font-display);font-size:2.4rem;line-height:1;font-weight:700;margin-bottom:1.1rem}
 .contrast__title i{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;flex:none}
 .contrast__card--no .contrast__title i{background:rgba(255,255,255,.12)}
 .contrast__card--yes .contrast__title i{background:var(--hot);color:var(--white)}
@@ -389,7 +399,7 @@ button{font:inherit;color:inherit}
 }
 .proof .h2{color:var(--white)}
 .proof__lines{list-style:none;padding:0;margin:1.3rem 0;display:grid;gap:.4rem}
-.proof__lines li{font-family:var(--font-display);font-weight:700;font-size:clamp(1.9rem,4vw,2.6rem);line-height:1.05;color:var(--hot)}
+.proof__lines li{font-family:var(--font-display);font-weight:700;font-size:clamp(1.5rem,3.2vw,2.1rem);line-height:1.15;color:var(--hot)}
 .proof__lines li::before{content:"✕ ";font-family:var(--font-body);font-size:.55em;vertical-align:.3em;color:var(--ink);opacity:.5}
 .proof__quote{
   margin-top:1.6rem;padding-top:1.4rem;border-top:2px dashed var(--blush);
@@ -571,7 +581,7 @@ button{font:inherit;color:inherit}
 <!-- ============================================================
      PLACEHOLDERS TO REPLACE BEFORE LAUNCH
      1. Purchase link -> PURCHASE_URL in the <script> at the bottom (already set to the Grow checkout)
-     2. Guide cover   -> <img data-placeholder="guide-cover"> (2 places)
+     2. Guide cover   -> <img data-placeholder="guide-cover"> (already set to the RavPages uploads)
      3. Shir portrait -> <img data-placeholder="shir-portrait">
      ============================================================ -->
 
@@ -644,15 +654,15 @@ button{font:inherit;color:inherit}
           <div class="display">המדריך לבוסט באינסטגרם</div>
           <div class="meta"><span>מהדורת ספטמבר 2026</span><span>54 עמודים</span></div>
         </div>
-        <!-- PLACEHOLDER: replace src with the final hi-res guide cover -->
-        <img data-placeholder="guide-cover" src="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/0b/bf/22/5c/0bbf225c1f3424e97030484a99068b89/images/d818f4a4cad0c23030b37ac30ff4718f.png?cc=8&amp;convert=webp&amp;maxWidth=250&amp;maxHeight=175" alt="" onerror="this.hidden=true" />
+        <!-- Guide cover (RavPages upload). Falls back to the 250px version, then to the CSS cover. -->
+        <img data-placeholder="guide-cover" src="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/0b/bf/22/5c/0bbf225c1f3424e97030484a99068b89/images/d818f4a4cad0c23030b37ac30ff4718f.png?cc=8" data-fallback="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/0b/bf/22/5c/0bbf225c1f3424e97030484a99068b89/images/d818f4a4cad0c23030b37ac30ff4718f.png?cc=8&amp;convert=webp&amp;maxWidth=250&amp;maxHeight=175" alt="" onerror="if(!this.dataset.tried){this.dataset.tried=1;this.src=this.dataset.fallback}else{this.hidden=true}" />
         <span class="mockup__spine" aria-hidden="true"></span>
         <span class="mockup__gloss" aria-hidden="true"></span>
       </div>
       <div class="mockup__peek" aria-hidden="true">
         <div class="mockup__peek-fallback"><i></i><i></i><i></i><i></i><b>Reel Insights</b></div>
-        <!-- PLACEHOLDER: replace src with an inside-page preview -->
-        <img data-placeholder="guide-cover" src="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/0b/bf/22/5c/0bbf225c1f3424e97030484a99068b89/images/547868a2fd1f91dca1d3443fbfd1c751.png?cc=8&amp;convert=webp&amp;maxWidth=250&amp;maxHeight=175" alt="" onerror="this.hidden=true" style="position:absolute;inset:0" />
+        <!-- Inside-page preview (RavPages upload) -->
+        <img data-placeholder="guide-cover" src="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/0b/bf/22/5c/0bbf225c1f3424e97030484a99068b89/images/547868a2fd1f91dca1d3443fbfd1c751.png?cc=8" data-fallback="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/0b/bf/22/5c/0bbf225c1f3424e97030484a99068b89/images/547868a2fd1f91dca1d3443fbfd1c751.png?cc=8&amp;convert=webp&amp;maxWidth=250&amp;maxHeight=175" alt="" onerror="if(!this.dataset.tried){this.dataset.tried=1;this.src=this.dataset.fallback}else{this.hidden=true}" style="position:absolute;inset:0" />
       </div>
       <span class="sticker sticker--en sticker--hot mockup__tag mockup__tag--1 float float--slow">Updated</span>
       <span class="sticker sticker--en mockup__tag mockup__tag--2 float">Boost Smarter</span>
@@ -975,7 +985,7 @@ button{font:inherit;color:inherit}
           <span class="sticker sticker--en sticker--ink" style="--rot:-2deg">2026 Edition</span>
           <span class="sticker sticker--hot" style="--rot:2deg">מעודכן לספטמבר 2026</span>
         </div>
-        <h3 class="display" style="font-size:clamp(2.4rem,5vw,3.6rem);margin-top:1.1rem">המדריך המקיף לבוסט לרילס — מהדורת 2026</h3>
+        <h3 class="display" style="font-size:clamp(1.9rem,4vw,2.8rem);margin-top:1.1rem">המדריך המקיף לבוסט לרילס — מהדורת 2026</h3>
         <ul class="product__list">
           <li><svg aria-hidden="true"><use href="#i-check"/></svg>54 עמודים</li>
           <li><svg aria-hidden="true"><use href="#i-check"/></svg>13 פרקים</li>
@@ -996,8 +1006,8 @@ button{font:inherit;color:inherit}
             <div class="display">המדריך לבוסט באינסטגרם</div>
             <div class="meta"><span>ספטמבר 2026</span><span>54 עמ׳</span></div>
           </div>
-          <!-- PLACEHOLDER: same cover image as the hero -->
-          <img data-placeholder="guide-cover" src="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/0b/bf/22/5c/0bbf225c1f3424e97030484a99068b89/images/d818f4a4cad0c23030b37ac30ff4718f.png?cc=8&amp;convert=webp&amp;maxWidth=250&amp;maxHeight=175" alt="" onerror="this.hidden=true" />
+          <!-- Same cover image as the hero -->
+          <img data-placeholder="guide-cover" src="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/0b/bf/22/5c/0bbf225c1f3424e97030484a99068b89/images/d818f4a4cad0c23030b37ac30ff4718f.png?cc=8" data-fallback="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/0b/bf/22/5c/0bbf225c1f3424e97030484a99068b89/images/d818f4a4cad0c23030b37ac30ff4718f.png?cc=8&amp;convert=webp&amp;maxWidth=250&amp;maxHeight=175" alt="" onerror="if(!this.dataset.tried){this.dataset.tried=1;this.src=this.dataset.fallback}else{this.hidden=true}" />
         </div>
         <span class="price"><span>49</span><small>₪</small></span>
         <a class="btn btn--lg btn--full" href="https://pay.grow.link/b46b0ab1dfe817077b378add38f1d7f5-MzIxMDMyMA" target="_blank" rel="noopener" data-purchase>אני רוצה את המדריך</a>
