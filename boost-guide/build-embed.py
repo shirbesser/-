@@ -47,10 +47,55 @@ body=body.replace('<!-- PLACEHOLDER: swap assets/shir.png for the final portrait
 body=body.replace('src="assets/shir.png"','src="'+data_uri('assets/shir-embed.webp','image/webp')+'"')
 body=re.sub(r'<!-- =+\n     PLACEHOLDERS.*?=+ -->\n','',body,flags=re.S)
 assert 'assets/shir.png' not in body
+# --- harden against host CSS (RavPages applies its own fonts/colors/vars, sometimes with !important) ---
+# 1) namespace custom properties (only var() references and declarations, never BEM "--modifier" class names)
+style=style.replace('var(--','var(--bgp-')
+style=re.sub(r'(?<=[{;\s])--(?=[a-z][\w-]*\s*:)','--bgp-',style)
+body=body.replace('var(--','var(--bgp-')
+body=re.sub(r'(?<=[";])--rot:','--bgp-rot:',body)
+style=style.replace(':root{','#bg-page{')
+# 2) prefix every selector with #bg-page so all rules outrank host element selectors
+def prefix_rules(css):
+    out=[];i=0;n=len(css)
+    while i<n:
+        j=css.find('{',i)
+        if j<0: out.append(css[i:]);break
+        sel=css[i:j]
+        # find matching close brace
+        depth=1;k=j+1
+        while k<n and depth:
+            if css[k]=='{':depth+=1
+            elif css[k]=='}':depth-=1
+            k+=1
+        inner=css[j+1:k-1]
+        s=sel.strip()
+        if s.startswith('@media'):
+            out.append(sel+'{'+prefix_rules(inner)+'}')
+        elif s.startswith('@'):
+            out.append(sel+'{'+inner+'}')
+        else:
+            lead=sel[:len(sel)-len(sel.lstrip())]
+            parts=[]
+            for x in s.split(','):
+                x=x.strip()
+                parts.append(x if x.startswith('#bg-page') else '#bg-page '+x)
+            out.append(lead+','.join(parts)+'{'+inner+'}')
+        i=k
+    return ''.join(out)
+style=re.sub(r'/\*.*?\*/','',style,flags=re.S)
+style=prefix_rules(style)
+style=style.replace('#bg-page #bg-page','#bg-page')
+# 3) force font families and stop host element rules from recoloring inherited text
+style=style.replace('font-family:var(--bgp-font-display)','font-family:var(--bgp-font-display)!important')
+style=style.replace('font-family:var(--bgp-font-body);','font-family:var(--bgp-font-body)!important;')
+style=('#bg-page,#bg-page *:not(svg):not(path):not(use){font-family:var(--bgp-font-body)!important}\n'
+       '#bg-page div,#bg-page span,#bg-page li,#bg-page ul,#bg-page ol,#bg-page a,#bg-page b,#bg-page strong,#bg-page small,#bg-page i,#bg-page em{color:inherit}\n')+style
 style=style.replace('url("assets/FbJambo-Regular.otf")','url("'+data_uri('assets/FbJambo-Regular.otf','font/otf')+'")')
 style=style.replace('url("assets/FbSpoiler-Regular.otf")','url("'+data_uri('assets/FbSpoiler-Regular.otf','font/otf')+'")')
 style=style.replace('url("assets/FbSpoiler-Bold.otf")','url("'+data_uri('assets/FbSpoiler-Bold.otf','font/otf')+'")')
 assert 'url("assets/' not in style
+
+
 out=f'''<!-- ===== המדריך לבוסט באינסטגרם | קוד להדבקה בבלוק HTML ברב מסר ===== -->
 <!-- לינק לתשלום: מופיע על כל הכפתורים וגם במשתנה PURCHASE_URL בסוף הקוד -->
 {fontlink}
